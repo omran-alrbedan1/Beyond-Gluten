@@ -1,0 +1,16 @@
+services:
+  abusara-app:
+    image: abusara-frontend:${IMAGE_TAG:-latest}
+    container_name: ${CONTAINER_NAME:-abusara_website}
+    ports:
+      - "${APP_PORT:-3004}:3000"
+    environment:
+      - NODE_ENV=${APP_ENV:-production}
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
