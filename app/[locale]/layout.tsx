@@ -24,17 +24,38 @@ export async function generateMetadata({
   params: Promise<{locale: string}>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const canonicalUrl = `${baseUrl}/${locale}`;
-
+  const baseUrl =  'https://abusarajewelry.com';
+  
   return {
-    title: "Abu Sara Jewelry",
-    description: "Trusted Jordanian jewelers since 1921. Our family-owned business crafts exquisite custom jewelry blending traditional craftsmanship with modern elegance from our Amman boutique.",
+    metadataBase: new URL(baseUrl),
+    title: {
+      template: "%s | Abu Sara Jewelry",
+      default: "Abu Sara Jewelry — Fine Gold & Custom Jewelry Since 1921",
+    },
+    description: "Jordan's trusted family-owned jeweler since 1921. Handcrafted gold, engagement rings, and custom designs in Amman.",
+    openGraph: {
+      type: "website",
+      locale: locale === 'ar' ? 'ar_JO' : 'en_US',
+      url: `${baseUrl}/${locale}`,
+      siteName: "Abu Sara Jewelry",
+      title: "Abu Sara Jewelry — Fine Gold & Custom Jewelry Since 1921",
+      description: "Jordan's trusted family-owned jeweler since 1921. Handcrafted gold and custom designs in Amman.",
+      images: [{
+        url: "/og-image.jpg", 
+        width: 1200,
+        height: 630,
+        alt: "Abu Sara Jewelry Collection",
+      }],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
-      canonical: canonicalUrl,
+      canonical: `${baseUrl}/${locale}`,
       languages: {
         'en': `${baseUrl}/en`,
-        'ar': `${baseUrl}/ar`,  
+        'ar': `${baseUrl}/ar`,
       },
     },
   };
