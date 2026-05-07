@@ -7,7 +7,6 @@ import {
   CustomDesignForm, 
   FaqSection,
   ServicesSection,
-  WhatsAppProcessSection 
 } from '@/components/custom-design';
 import { getCustomDesignMetadata } from '../metadata/custom-design';
 import { CustomDesignServiceSchema, FAQSchema } from '@/components/seo/JsonLd';

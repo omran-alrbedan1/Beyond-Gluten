@@ -130,8 +130,10 @@ export default function CustomDesignForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid gap-5 border border-gray-200 bg-white p-6 shadow-sm md:grid-cols-2 md:p-10"
+        className=" border border-gray-200 bg-white p-4 sm:p-6 md:p-10 shadow-sm"
       >
+        <div className='grid gap-4  sm:gap-5 md:grid-cols-2'>
+
         {/* Full Name - Required */}
         <FormField
           control={form.control}
@@ -140,7 +142,7 @@ export default function CustomDesignForm() {
             <FormItem className="space-y-2">
               <FormLabel 
                 htmlFor={field.name}
-                className="text-xs uppercase tracking-[0.25em] text-gray-500"
+                className="text-xs uppercase tracking-[0.25em] text-gray-500 block"
               >
                 {t("form.fullName")}
                 <span className="text-primary ml-1">*</span>
@@ -153,7 +155,7 @@ export default function CustomDesignForm() {
                     id={field.name}
                     type="text"
                     placeholder={t("form.fullNamePlaceholder")}
-                    className="pl-10 ltr:pl-10 rtl:pl-16 p-5"
+                    className="pl-10 ltr:pl-10 rtl:pl-16 p-5 text-sm sm:text-base"
                     aria-invalid={fieldState.invalid}
                     aria-describedby={fieldState.error ? `${field.name}-error` : undefined}
                   />
@@ -178,7 +180,7 @@ export default function CustomDesignForm() {
             <FormItem className="space-y-2">
               <FormLabel 
                 htmlFor={field.name}
-                className="text-xs uppercase tracking-[0.25em] text-gray-500"
+                className="text-xs uppercase tracking-[0.25em] text-gray-500 block"
               >
                 {t("form.phone")}
                 <span className="text-primary ml-1">*</span>
@@ -191,7 +193,7 @@ export default function CustomDesignForm() {
                     id={field.name}
                     type="tel"
                     placeholder={t("form.phonePlaceholder")}
-                    className="pl-10 ltr:pl-10 rtl:pl-16 p-5"
+                    className="pl-10 ltr:pl-10 rtl:pl-16 p-5 text-sm sm:text-base"
                     aria-invalid={fieldState.invalid}
                     aria-describedby={fieldState.error ? `${field.name}-error` : undefined}
                   />
@@ -214,7 +216,7 @@ export default function CustomDesignForm() {
           name="email"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
                 {t("form.email")}
               </FormLabel>
               <FormControl>
@@ -224,7 +226,7 @@ export default function CustomDesignForm() {
                     {...field}
                     type="email"
                     placeholder={t("form.emailPlaceholder")}
-                    className="pl-10 ltr:pl-10 rtl:pl-16 p-5"
+                    className="pl-10 ltr:pl-10 rtl:pl-16 p-5  text-sm sm:text-base"
                   />
                 </div>
               </FormControl>
@@ -239,13 +241,13 @@ export default function CustomDesignForm() {
           name="jewelryType"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
                 {t("form.jewelryType")}
                 <span className="text-primary ml-1">*</span>
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="w-full p-5">
+                  <SelectTrigger className="w-full h-14  p-5 sm:h-12 text-sm sm:text-base">
                     <Gem className="mr-2 h-4 w-4 text-primary" />
                     <SelectValue placeholder={t("form.selectJewelryType")} />
                   </SelectTrigger>
@@ -269,13 +271,13 @@ export default function CustomDesignForm() {
           name="goldKarat"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
                 {t("form.goldKarat")}
                 <span className="text-primary ml-1">*</span>
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="w-full p-5">
+                  <SelectTrigger className="w-full p-5 text-sm sm:text-base">
                     <Palette className="mr-2 h-4 w-4 text-primary" />
                     <SelectValue placeholder={t("form.selectKarat")} />
                   </SelectTrigger>
@@ -297,12 +299,12 @@ export default function CustomDesignForm() {
           name="goldColor"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
                 {t("form.goldColor")}
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="w-full p-5">
+                  <SelectTrigger className="w-full p-5 text-sm sm:text-base">
                     <Palette className="mr-2 h-4 w-4 text-primary" />
                     <SelectValue placeholder={t("form.selectColor")} />
                   </SelectTrigger>
@@ -326,12 +328,12 @@ export default function CustomDesignForm() {
           name="occasion"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
                 {t("form.occasion")}
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="w-full p-5">
+                  <SelectTrigger className="w-full p-5 text-sm sm:text-base">
                     <Calendar className="mr-2 h-4 w-4 text-primary" />
                     <SelectValue placeholder={t("form.selectOccasion")} />
                   </SelectTrigger>
@@ -348,10 +350,12 @@ export default function CustomDesignForm() {
             </FormItem>
           )}
         />
+          
+        </div>
       
         {/* Reference Image - Optional with File Upload */}
         <div className="space-y-2 col-span-2">
-          <label className="text-xs uppercase tracking-[0.25em] text-gray-500">
+          <label className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
             {t("form.reference")}
           </label>
           <FileUpload
@@ -364,19 +368,21 @@ export default function CustomDesignForm() {
         </div>
         
         {/* Design Description - Required (full width) */}
-        <FormField
+      <div className='col-span-2'>
+          <FormField
           control={form.control}
           name="description"
+          
           render={({ field }) => (
-            <FormItem className="space-y-2 md:col-span-2">
-              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500">
+            <FormItem className="space-y-2">
+              <FormLabel className="text-xs uppercase tracking-[0.25em] text-gray-500 block">
                 {t("form.description")}
                 <span className="text-primary ml-1">*</span>
               </FormLabel>
               <FormControl>
                 <textarea
                   {...field}
-                  className="w-full border border-gray-300 px-4 py-2 text-sm outline-none focus:border-primary transition-colors min-h-36 resize-vertical"
+                  className="w-full border border-gray-300 px-4 py-2 text-sm sm:text-base outline-none focus:border-primary transition-colors min-h-36 resize-vertical"
                   placeholder={t("form.descriptionPlaceholder")}
                   rows={5}
                 />
@@ -385,13 +391,14 @@ export default function CustomDesignForm() {
             </FormItem>
           )}
         />
+      </div>
         
         {/* Form Actions */}
-        <div className="md:col-span-2 flex gap-4 items-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold uppercase tracking-widest px-8 py-3 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold uppercase tracking-widest px-6 sm:px-8 py-3 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             aria-busy={isSubmitting}
           >
             <Gem className="w-4 h-4 text-primary" />
@@ -402,7 +409,7 @@ export default function CustomDesignForm() {
             type="button"
             onClick={handleReset}
             disabled={isSubmitting}
-            className="inline-flex items-center gap-2 border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 text-sm font-semibold uppercase tracking-widest px-6 py-3 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center justify-center gap-2 border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 text-sm font-semibold uppercase tracking-widest px-6 py-3 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {t("form.reset")}
           </button>

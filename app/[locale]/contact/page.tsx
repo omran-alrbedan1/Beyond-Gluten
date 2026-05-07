@@ -5,7 +5,6 @@ import HeroSection from '@/components/contact/HeroSection';
 import { getContactMetadata } from '../metadata/contact';
 
 
-// ─── Contact Information Constants ───────────────────────────────────────
 const CONTACT = {
   phoneTel: "+962777616777",
   phoneDisplay: "0777616777",

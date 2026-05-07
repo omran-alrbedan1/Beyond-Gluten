@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     key: 'anas',
-    avatar: HERO_IMAGES.abuSaraHero,
+    avatar: HERO_IMAGES.abuSaraHero3,
     featured: false
   }
 ];
