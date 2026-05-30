@@ -126,8 +126,8 @@ export default function FileUpload({
       <div
         className={`relative border-2 border-dashed rounded-lg sm:rounded-xl transition-all duration-200 ${
           isDragging 
-            ? 'border-[#c9a98a] bg-[#c9a98a]/5 scale-[0.99]' 
-            : 'border-gray-300 hover:border-[#c9a98a] hover:bg-gray-50'
+            ? 'border-[#E6C687] bg-[#E6C687]/5 scale-[0.99]' 
+            : 'border-gray-300 hover:border-[#E6C687] hover:bg-gray-50'
         } ${error ? 'border-red-500 bg-red-50' : ''}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -167,8 +167,8 @@ export default function FileUpload({
             className="flex flex-col items-center justify-center cursor-pointer py-6 sm:py-8 md:py-10 px-4 transition-all duration-200 hover:opacity-80"
             onDragOver={handleDragOver}
           >
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#c9a98a]/10 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-200 group-hover:scale-105">
-              <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-[#c9a98a]" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#E6C687]/10 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-200 group-hover:scale-105">
+              <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-[#E6C687]" />
             </div>
             <p className="text-sm sm:text-base font-medium text-gray-700 mb-1 text-center">
               {uploadLabel}
@@ -212,7 +212,7 @@ export default function FileUpload({
       {selectedFile && !preview && (
         <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg sm:rounded-xl animate-in fade-in duration-200">
           <div className="flex items-center gap-2 flex-1 w-full xs:w-auto">
-            <ImageIcon className="w-4 h-4 text-[#c9a98a] flex-shrink-0" />
+            <ImageIcon className="w-4 h-4 text-[#E6C687] flex-shrink-0" />
             <span className="text-xs sm:text-sm text-green-700 break-all flex-1">
               {selectedFile.name}
             </span>
@@ -224,7 +224,7 @@ export default function FileUpload({
             <button
               type="button"
               onClick={handleRemove}
-              className="text-[#c9a98a] hover:text-[#b8956f] transition-all duration-200 hover:scale-110 active:scale-95 p-1"
+              className="text-[#E6C687] hover:text-[#b8956f] transition-all duration-200 hover:scale-110 active:scale-95 p-1"
               aria-label={t('fileUpload.removeFile') || "Remove file"}
             >
               <X className="w-4 h-4" />

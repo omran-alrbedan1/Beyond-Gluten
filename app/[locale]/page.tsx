@@ -1,15 +1,12 @@
 import { getTranslations } from 'next-intl/server';
-import { useLocale } from 'next-intl';
-import { Link } from '@/i18n/routing';
-import Image from 'next/image';
 import { 
-  HERO_IMAGES, 
+  HERO_IMAGES,
+  wedding, 
 } from '@/constants/images';
 import Hero from '@/components/home/Hero';
 import Testimonials from '@/components/home/Testimonials';
 import { LuxeGallery } from '@/components/ui-luxe/LuxeGallery';
 import { getHomeMetadata } from './metadata/home';
-import { JewelryStoreSchema, OrganizationSchema } from '@/components/seo/JsonLd';
 
 // ─── Metadata Generation ─────────────────────────────────────────────
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -40,7 +37,7 @@ export default async function HomePage() {
     />
       {/* ── WEDDING BANNER ── */}
       <section className="relative w-full h-96 overflow-hidden mb-14">
-        <img src={HERO_IMAGES.boutiqueDisplay} alt="Wedding" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <img src={wedding.weddingSection} alt="Wedding" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
           <h2 className="text-2xl md:text-3xl font-serif font-light leading-snug drop-shadow">

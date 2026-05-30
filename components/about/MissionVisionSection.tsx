@@ -30,7 +30,7 @@ export function MissionVisionSection() {
             <h3 className="mb-4 text-3xl font-serif font-light text-gray-900">
               {t("missionVision.missionTitle")}
             </h3>
-            <div className="w-16 h-px bg-[#c9a98a] mb-6" />
+            <div className="w-16 h-px bg-[#E6C687] mb-6" />
             <p className="text-base leading-relaxed text-gray-600">
               {t("missionVision.missionText")}
             </p>
@@ -44,7 +44,7 @@ export function MissionVisionSection() {
             <h3 className="mb-4 text-3xl font-serif font-light text-gray-900">
               {t("missionVision.visionTitle")}
             </h3>
-            <div className="w-16 h-px bg-[#c9a98a] mb-6" />
+            <div className="w-16 h-px bg-[#E6C687] mb-6" />
             <p className="text-base leading-relaxed text-gray-600">
               {t("missionVision.visionText")}
             </p>

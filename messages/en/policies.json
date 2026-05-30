@@ -8,7 +8,7 @@
   "sections": {
     "pricing": {
       "title": "Pricing Policy",
-      "text": "All prices are quoted in Jordanian Dinars (JOD) and are based on current gold market rates plus craftsmanship fees. Prices are subject to change based on market fluctuations."
+      "text": "All prices are quoted in US Dollars (USD) and are based on current gold market rates plus craftsmanship fees. Prices are subject to change based on market fluctuations."
     },
     "confirmation": {
       "title": "Order Confirmation",
@@ -28,7 +28,7 @@
     },
     "shipping": {
       "title": "Shipping & Delivery",
-      "text": "Local delivery within Amman is complimentary. International shipping is available through secure courier services. All shipments are fully insured."
+      "text": "Local delivery within Damascus is complimentary. International shipping is available through secure courier services. All shipments are fully insured."
     },
     "warranty": {
       "title": "Warranty & Service",
@@ -36,7 +36,7 @@
     },
     "payment": {
       "title": "Payment Methods",
-      "text": "We accept cash, bank transfers, and major credit cards. Payment plans are available for purchases over 500 JOD with approved credit."
+      "text": "We accept cash, bank transfers, and major credit cards. Payment plans are available for purchases over 500 USD with approved credit."
     }
   },
   "faq": {
@@ -48,7 +48,7 @@
     },
     "2": {
       "q": "Do you offer payment plans for large purchases?",
-      "a": "Yes, we offer flexible payment plans for purchases over 500 JOD. Terms and conditions apply."
+      "a": "Yes, we offer flexible payment plans for purchases over 500 USD. Terms and conditions apply."
     },
     "3": {
       "q": "How do I care for my jewelry?",

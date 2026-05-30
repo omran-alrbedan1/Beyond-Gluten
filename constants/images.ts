@@ -1,15 +1,33 @@
 // ─── Hero & Banner Images ───────────────────────────────────────
 export const    HERO_IMAGES = {
-  abuSaraHero: '/assets/abu_sara_hero.png',
-  abuSaraHero2: '/assets/abu_sara_hero2.png',
-  abuSaraHero3: '/assets/abu_sara_hero3.png',
-  aboutUsHero: '/assets/about_us_hero.png',
   customDesign: '/assets/custom-design.jpg',
   jewelry: '/assets/hero-jewelry.jpg',
   boutiqueDisplay: '/assets/boutique-gold-display.jpg',
   boutiqueInterior: '/assets/boutique-interior-real.jpg',
   shopInterior: '/assets/shop-interior.jpg',
 } as const;
+
+export const ads ={
+  hero1:'/assets/images/advertisements/hero1.png',
+  hero2:'/assets/images/advertisements/hero2.png',
+  hero3:'/assets/images/advertisements/hero3.png',
+}
+
+export const wedding={
+  weddingSection:'/assets/images/wedding/wedding.png',
+}
+export const testimonials={
+  testimonials1:'/assets/images/testimonials/testimonials1.png',
+  testimonials2:'/assets/images/testimonials/testimonials2.png',
+  testimonials3:'/assets/images/testimonials/testimonials3.png',
+}
+
+export const about ={
+  aboutUsHero: '/assets/images/about/about_us_hero.png',
+  ourStory: '/assets/images/about/shop.jpg',
+  firstShop: '/assets/images/about/shop2.jpg',
+  secondShop: '/assets/images/about/shop.jpg',
+}
 
 // ─── Service Images ──────────────────────────────────────
 export const SERVICE_IMAGES = {
@@ -22,7 +40,8 @@ export const SERVICE_IMAGES = {
  
 
 // ─── Heritage Images ───────────────────────────────────────────
-export const HERITAGE_IMAGES = {
+export const 
+HERITAGE_IMAGES = {
   shopfront: '/assets/heritage-shopfront.jpeg',
   shopfrontPng: '/assets/heritage-shopfront.png',
   goldsmithsMarket: '/assets/heritage-goldsmiths-market.png',
@@ -37,60 +56,47 @@ export const MISSION_VISION_IMAGES = {
 
 // ─── Product Images - Rings ────────────────────────────────────
 export const RING_IMAGES = {
-  curved: '/assets/gallery/ring-pave-band.jpg',
-  emerald: '/assets/gallery/ring-leaf-pave.jpg',
-  exquisite: '/assets/gallery/ring-gold-stack.jpg',
-  twoTone: '/assets/gallery/ring-pure-gold-band.jpg',
-  whiteGold: '/assets/gallery/rings-diamond-stack-hand.jpg',
+  curved: '/assets/images/rings/ring1.jpg',
+  emerald: '/assets/images/rings/ring2.jpg',
+  exquisite: '/assets/images/rings/ring3.jpg',
+  twoTone: '/assets/images/rings/ring4.jpg',
+  whiteGold: '/assets/images/rings/ring5.jpg',
 } as const;
 
 // ─── Product Images - Necklaces ───────────────────────────────
 export const NECKLACE_IMAGES = {
-  diamond: '/assets/gallery/necklace-vline-diamond.jpg',
-  goldChain: '/assets/gallery/necklace-gold-cuban.jpg',
-  goldCuban: '/assets/gallery/necklace-gold-cuban.jpg',
-  vlineDiamond: '/assets/gallery/necklace-vline-diamond.jpg',
+  diamond: '/assets/images/necklaces/necklace1.jpg',
+  goldChain: '/assets/images/necklaces/necklace2.jpg',
+  goldCuban: '/assets/images/necklaces/necklace3.jpg',
+  vlineDiamond: '/assets/images/necklaces/necklace4.jpg',
 } as const;
 
 // ─── Product Images - Bracelets ────────────────────────────────
 export const BRACELET_IMAGES = {
-  cuff: '/assets/gallery/bracelet-branch-pave.jpg',
-  tennis: '/assets/gallery/bracelet-tennis-worn.jpg',
-  branchPave: '/assets/gallery/bracelet-branch-pave.jpg',
-  charmsGold: '/assets/gallery/bracelet-charms-gold.jpg',
-  tennisWorn: '/assets/gallery/bracelet-tennis-worn.jpg',
-} as const;
-
-// ─── Product Images - Earrings ─────────────────────────────────
-export const EARRINGS_IMAGES = {
-  chainTasselProduct: '/assets/gallery/earrings-chain-tassel-product.jpg',
-  chainTasselWorn: '/assets/gallery/earrings-chain-tassel-worn.jpg',
-  flame: '/assets/gallery/earrings-flame.jpg',
-} as const;
-
-// ─── Product Images - Pendants ─────────────────────────────────
-export const PENDANT_IMAGES = {
-  gold: '/assets/gallery/set-gold-shirt.jpg',
+  cuff: '/assets/images/bracelets/bracelet1.jpg',
+  tennis: '/assets/images/bracelets/bracelet2.jpg',
+  branchPave: '/assets/images/bracelets/bracelet3.jpg',
+  charmsGold: '/assets/images/bracelets/bracelet4.jpg',
+  tennisWorn: '/assets/images/bracelets/bracelet5.jpg',
 } as const;
 
 // ─── Gallery Images ────────────────────────────────────────────
 export const GALLERY_IMAGES = {
   // Rings
-  ringGoldStack: '/assets/ring-exquisite.jpg',
-  ringLeafPave: '/assets/ring-emerald.jpg',
-  ringPaveBand: '/assets/ring-two-tone.jpg',
-  ringPureGoldBand: '/assets/ring-white-gold.jpg',
-  ringsDiamondStackHand: '/assets/ring-curved.jpg',
+  ringGoldStack: '/assets/images/rings/ring6.jpg',
+  ringLeafPave: '/assets/images/rings/ring7.jpg',
+  ringPaveBand: '/assets/images/rings/ring8.jpg',
+  ringPureGoldBand: '/assets/images/rings/ring9.jpg',
+  ringsDiamondStackHand: '/assets/images/rings/ring1.jpg',
   
   // Sets & Collections
-  goldShirt: '/assets/pendant-gold.jpg',
+  goldShirt: '/assets/images/necklaces/necklace5.jpg',
 } as const;
 
 // ─── Logo & Brand Images ───────────────────────────────────────
 export const BRAND_IMAGES = {
-  logo: '/assets/logo-as.jpg',
-  goldLogo: '/assets/gold-logo.png',
-  futurexLogo: '/assets/futurex-logo.svg',
+  logo: '/assets/images/logo.jpg',
+  logo2: '/assets/images/logo2.png',
   videoLogo: '/assets/video-logo.jpg',
 } as const;
 
@@ -99,15 +105,16 @@ export const CATEGORY_IMAGES = {
   rings: RING_IMAGES.exquisite,
   necklaces: NECKLACE_IMAGES.diamond,
   bracelets: BRACELET_IMAGES.tennis,
-  earrings: EARRINGS_IMAGES.chainTasselProduct,
-  pendants: PENDANT_IMAGES.gold,
+  earrings: '',
+  pendants: '',
+  // TODO: add earrings and pendants images when available
 } as const;
 
 // ─── Blog Images ─────────────────────────────────────────────────
 export const BLOG_IMAGES = [
-  '/assets/gallery/ring-gold-stack.jpg',
-  '/assets/gallery/necklace-gold-cuban.jpg',
-  '/assets/gallery/bracelet-tennis-worn.jpg',
+  '/assets/images/rings/ring6.jpg',
+  '/assets/images/necklaces/necklace3.jpg',
+  '/assets/images/bracelets/bracelet2.jpg',
 ] as const;
 
 // ─── All Images Export (for easy access) ─────────────────────────
@@ -118,8 +125,6 @@ export const ALL_IMAGES = {
   rings: RING_IMAGES,
   necklaces: NECKLACE_IMAGES,
   bracelets: BRACELET_IMAGES,
-  earrings: EARRINGS_IMAGES,
-  pendants: PENDANT_IMAGES,
   gallery: GALLERY_IMAGES,
   brand: BRAND_IMAGES,
   categories: CATEGORY_IMAGES,
@@ -156,11 +161,4 @@ export const IMAGES = {
   braceletTennis: BRACELET_IMAGES.tennis,
   braceletCuff: BRACELET_IMAGES.cuff,
   
-  // Earring images
-  earringsFlame: EARRINGS_IMAGES.flame,
-  earringsChainTasselProduct: EARRINGS_IMAGES.chainTasselProduct,
-  earringsChainTasselWorn: EARRINGS_IMAGES.chainTasselWorn,
-  
-  // Pendant images
-  pendantGold: PENDANT_IMAGES.gold,
 } as const;

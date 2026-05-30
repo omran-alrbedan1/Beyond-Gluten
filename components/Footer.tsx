@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale, useTranslations } from 'next-intl';
-import { MapPin, Mail, Phone, Clock, ChevronRight } from 'lucide-react';
+import { MapPin, Mail, Phone, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BRAND_IMAGES } from '@/constants/images';
@@ -17,7 +17,6 @@ export default function Footer() {
     { key: 'contact', href: '/contact' },
   ] as const;
 
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-900 text-white pt-12 md:pt-16 pb-6 md:pb-8 px-4 sm:px-6" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
@@ -26,11 +25,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
           
           {/* Logo and Brand - Column 1 */}
-          <div className="text-center sm:text-start">
+          <div className="text-center sm:text-start"> 
             <div className="mb-5 flex justify-center sm:justify-start">
               <Image 
-                src={BRAND_IMAGES.goldLogo} 
-                alt="Abu Sara Jewelry" 
+                src={BRAND_IMAGES.logo2} 
+                alt="Rovana Jewelry" 
                 width={120}
                 height={40}
                 className="h-auto w-auto"
@@ -44,7 +43,7 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="flex gap-3 justify-center sm:justify-start">
               <a 
-                href="https://www.facebook.com/share/1GeReKZhJN/"
+                href="https://www.facebook.com/share/1BLpnTQo49/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
@@ -53,7 +52,7 @@ export default function Footer() {
                 <FaFacebookF className="w-4 h-4 text-white" />
               </a>
               <a 
-                href="https://www.instagram.com/abusara.jewelry?igsh=MWlhNmJ2YWVsdTBvZA=="
+                  href="https://www.instagram.com/rovana_jewellery2?igsh=MXFpcjB3NDI0bTluNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
@@ -61,12 +60,19 @@ export default function Footer() {
               >
                 <FaInstagram className="w-4 h-4 text-white" />
               </a>
+              <a 
+                href="mailto:rovanajewellery@gmail.com"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+                aria-label="Email"
+              >
+                <Mail className="w-4 h-4 text-white" />
+              </a>
             </div>
           </div>
 
           {/* Quick Links - Column 2 */}
           <div className="text-center sm:text-start">
-            <h3 className="text-base font-serif font-light mb-4 text-[#c9a98a] uppercase tracking-wider">
+            <h3 className="text-base font-serif font-light mb-4 text-[#E6C687] uppercase tracking-wider">
               {t('navigation.title')}
             </h3>
             <ul className="space-y-2.5">
@@ -74,7 +80,7 @@ export default function Footer() {
                 <li key={key}>
                   <Link 
                     href={href}
-                    className="inline-flex items-center gap-1 text-sm text-gray-300 hover:text-[#c9a98a] transition-colors duration-200 group"
+                    className="inline-flex items-center gap-1 text-sm text-gray-300 hover:text-[#E6C687] transition-colors duration-200 group"
                   >
                     <ChevronRight className={`w-3 h-3 opacity-0 transition-all duration-200 ${locale === 'ar' ? '-mr-4 group-hover:opacity-100 group-hover:mr-0 rotate-180' : '-ml-4 group-hover:opacity-100 group-hover:ml-0'}`} />
                     <span className={`transition-transform duration-200 ${locale === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`}>
@@ -88,14 +94,14 @@ export default function Footer() {
 
           {/* Contact Information - Column 3 */}
           <div className="text-center sm:text-start">
-            <h3 className="text-base font-serif font-light mb-4 text-[#c9a98a] uppercase tracking-wider">
+            <h3 className="text-base font-serif font-light mb-4 text-[#E6C687] uppercase tracking-wider">
               {t('contact.title')}
             </h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3 justify-center sm:justify-start group">
-                <MapPin className="w-4 h-4 text-[#c9a98a] flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#E6C687] flex-shrink-0" />
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Salah+Al-Shemat+St+7,+Amman"
+                  href="https://www.google.com/maps/search/?api=1&query=Al-Salihiya+Damascus+Syria"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-gray-300 group-hover:text-white transition-colors duration-200"
@@ -104,19 +110,20 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-3 justify-center sm:justify-start group">
-                <Mail className="w-4 h-4 text-[#c9a98a] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#E6C687] flex-shrink-0" />
                 <a 
-                  href="mailto:info@abusarajewelry.com"
+                  href="mailto:rovanajewellery@gmail.com"
                   className="text-sm text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   {t('contact.email')}
                 </a>
               </div>
               <div className="flex items-center gap-3 justify-center sm:justify-start group">
-                <Phone className="w-4 h-4 text-[#c9a98a] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#E6C687] flex-shrink-0" />
                 <a 
-                  href="tel:+962777616777"
+                  href="tel:+963981117927"
                   className="text-sm text-gray-300 hover:text-white transition-colors duration-200"
+                  dir="ltr"
                 >
                   {t('contact.phone')}
                 </a>
@@ -126,7 +133,7 @@ export default function Footer() {
 
           {/* Business Hours - Column 4 */}
           <div className="text-center sm:text-start">
-            <h3 className="text-base font-serif font-light mb-4 text-[#c9a98a] uppercase tracking-wider">
+            <h3 className="text-base font-serif font-light mb-4 text-[#E6C687] uppercase tracking-wider">
               {t('business.title')}
             </h3>
             <div className="space-y-3">
@@ -144,21 +151,6 @@ export default function Footer() {
             <p className="text-xs text-gray-400 text-center md:text-left">
               {t('copyright')}
             </p>
-            <div className="flex items-center gap-2">
-              <span className=" text-gray-300 ">{t('poweredBy')}</span>
-              <a 
-                href={`https://futxtech.com/${locale}/home`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
-                <img 
-                  src={BRAND_IMAGES.futurexLogo} 
-                  alt="Futurex" 
-                  className="h-8 w-auto"
-                />
-              </a>
-            </div>
           </div>
         </div>
       </div>

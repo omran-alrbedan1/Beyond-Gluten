@@ -1,29 +1,29 @@
 export const SITE = {
-  name: "Abu Sara Jewelry",
-  shortName: "Abu Sara",
+  name: "Rovana Jewelry",
+  shortName: "Rovana",
   tagline: "Elegance in Every Detail",
   established: 1921,
   description: "A legacy of craftsmanship and trust since 1948 - Jordan's family-owned house of fine diamond and gold jewelry.",
 } as const;
 
 export const CONTACT = {
-  phoneDisplay: "0777616777",
-  phoneTel: "+962777616777",
-  whatsappNumber: "962777616777",
-  email: "info@abusarajewelry.com",
+  phoneDisplay: "0981 117 927",
+  phoneTel: "+963981117927",
+  whatsappNumber: "963981117927",
+  email: "rovanajewellery@gmail.com",
   address: {
-    line1: "Sweifieh",
-    line2: "Amman, Jordan",
-    line2Ar: "عمّان، الأردن",
-    full: "Salah Al-Shemat St. 7, Amman, Jordan",
-    fullAr: "ش. صلاح الشمات 7، عمّان، الأردن",
+    line1: "Al-Salihiya, Next to Abou Abdo Juice",
+    line2: "Damascus, Syria",
+    line2Ar: "دمشق، سوريا",
+    full: "Al-Salihiya, Next to Abou Abdo Juice, Damascus, Syria",
+    fullAr: "الصالحية، بجانب عصير أبو عبدو، دمشق، سوريا",
   },
   hours: [
     { day: "Saturday - Thursday", dayAr: "السبت - الخميس", time: "10:00 - 20:30" },
     { day: "Friday", dayAr: "الجمعة", time: "Closed" },
   ],
-  mapsDirections: "https://www.google.com/maps/dir/?api=1&destination=Salah+Al-Shemat+St+7,+Amman",
-  mapsEmbed: "https://www.google.com/maps?q=Salah+Al-Shemat+St+7,+Amman&output=embed",
+  mapsDirections: "https://www.google.com/maps/dir/?api=1&destination=33.5204193,36.2920914",
+  mapsEmbed: "https://www.google.com/maps?q=33.5204193,36.2920914&output=embed",
 } as const;
 
 export const SOCIAL = {

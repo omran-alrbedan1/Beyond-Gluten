@@ -30,18 +30,12 @@ const PRODUCT_AR: Record<string, { name: string; tagline?: string }> = {
   "b-103": { name: "أسوارة تعليقات ذهبية", tagline: "رموز مرحة مصقولة بالذهب." },
   "b-001": { name: "زوج أساور تنس ألماس", tagline: "بريق يرافق كل حركة." },
   "b-002": { name: "سوار ذهب منحوت", tagline: "تصميم معماري خالد." },
-  "e-101": { name: "حلق لهب مرصع", tagline: "إطار من الضوء لجمالك." },
-  "e-102": { name: "حلق شرابات 18 قيراط", tagline: "حركة وضوء في كل خصلة." },
-  "e-103": { name: "حلق شرابة ذهبي", tagline: "انسدال ناعم بلمعة ذهبية." },
-  "p-001": { name: "تعليقة ذهب 18 قيراط", tagline: "لمسة كلاسيكية من الأناقة." },
 };
 
 const CATEGORY_KEYS: Record<ProductCategory, string> = {
   rings: "category.rings",
   necklaces: "category.necklaces",
   bracelets: "category.bracelets",
-  pendants: "category.pendants",
-  earrings: "category.earrings",
 };
 
 function localizeProduct(product: Product, language: string) {
@@ -197,6 +191,7 @@ export function LuxeGallery({ withFeaturedRow = true, className = "", showHeadin
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   role="listitem"
+                  className=""
                 >
                   <Card
                     className="group relative cursor-pointer overflow-hidden border-border transition-all hover:border-ring hover:shadow-xl"
@@ -206,7 +201,7 @@ export function LuxeGallery({ withFeaturedRow = true, className = "", showHeadin
                     tabIndex={0}
                     aria-label={`View details for ${localized.name}`}
                   >
-                    <div className="relative aspect-square overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       <motion.img
                         src={image.url}
                         alt={localized.name}
@@ -223,11 +218,11 @@ export function LuxeGallery({ withFeaturedRow = true, className = "", showHeadin
                         className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm"
                         aria-hidden="true"
                       >
-                        <ZoomIn className="mb-2 h-8 w-8 text-[var(--muted-foreground)]" />
-                        <h3 className="mb-1 text-center text-lg font-semibold text-white">
+                        <ZoomIn className="mb-2 h-6 w-6 text-[var(--muted-foreground)]" />
+                        <h3 className="mb-1 text-center text-base font-semibold text-white">
                           {localized.name}
                         </h3>
-                        <Badge variant="secondary">
+                        <Badge variant="secondary" className="text-xs">
                           {t(CATEGORY_KEYS[image.category as ProductCategory])}
                         </Badge>
                       </motion.div>

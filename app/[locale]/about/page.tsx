@@ -1,7 +1,7 @@
 
 import { 
   HeroSection, 
-  VideoSection, 
+  StorySection, 
   MissionVisionSection, 
   HeritageSection 
 } from '@/components/about';
@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white font-sans text-gray-800 min-h-screen">
       <HeroSection />
-      <VideoSection />
+      <StorySection />
       <MissionVisionSection />
       <HeritageSection />
     </div>

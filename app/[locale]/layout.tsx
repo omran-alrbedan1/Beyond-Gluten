@@ -30,22 +30,22 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(baseUrl),
     title: {
-      template: "%s | Abu Sara Jewelry",
-      default: "Abu Sara Jewelry — Fine Gold & Custom Jewelry Since 1921",
+      template: "%s | Rovana Jewelry",
+      default: "Rovana Jewelry — Fine Gold & Custom Jewelry",
     },
-    description: "Jordan's trusted family-owned jeweler since 1921. Handcrafted gold, engagement rings, and custom designs in Amman.",
+    description: "Your favorite store for the finest gold and diamond jewelry in Damascus, Syria. Handcrafted gold, custom designs, and expert jewelry services .",
     openGraph: {
       type: "website",
-      locale: locale === 'ar' ? 'ar_JO' : 'en_US',
+      locale: locale === 'ar' ? 'ar_SY' : 'en_US',
       url: `${baseUrl}/${locale}`,
-      siteName: "Abu Sara Jewelry",
-      title: "Abu Sara Jewelry — Fine Gold & Custom Jewelry Since 1921",
-      description: "Jordan's trusted family-owned jeweler since 1921. Handcrafted gold and custom designs in Amman.",
+      siteName: "Rovana Jewelry",
+      title: "Rovana Jewelry — Fine Gold & Custom Jewelry",
+      description: "Your favorite store for the finest gold and diamond jewelry in Damascus, Syria.",
       images: [{
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Abu Sara Jewelry Collection",
+        alt: "Rovana Jewelry Collection",
       }],
     },
     robots: {

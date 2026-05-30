@@ -1,11 +1,11 @@
 {
-  "description": "Trusted Jordanian jewelers since 1921. Our family-owned business crafts exquisite custom jewelry blending traditional craftsmanship with modern elegance from our Amman boutique.",
+  "description": "Rovana Jewelry crafts exquisite custom jewelry blending traditional craftsmanship with modern elegance from our Damascus boutique.",
   "contact": {
     "title": "Contact Us",
-    "address": "Salah Al-Shemat St. 7, Amman",
-    "email": "info@abusarajewelry.com",
-    "phone": "0777616777",
-    "hours": "Sun-Thu: 10:00 - 20:30"
+    "address": "Al-Salihiya, Next to Abou Abdo Juice, Damascus",
+    "email": "rovanajewellery@gmail.com",
+    "phone": "0981 117 927",
+    "hours": "Sat-Thu: 10:00 - 20:30"
   },
   "navigation": {
     "title": "Quick Links",
@@ -22,6 +22,6 @@
     "sundayThursdayHours": "10:00 AM - 8:30 PM",
     "saturdayHours": "11:00 AM - 5:00 PM"
   },
-  "copyright": "© 2026 Abu Sara Jewelry. All Rights Reserved.",
+  "copyright": "© 2026 Rovana Jewelry. All Rights Reserved.",
   "poweredBy": "Powered by"
 }

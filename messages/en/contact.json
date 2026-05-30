@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Contact Abu Sara Jewelry | Visit Our Amman Boutique",
-    "description": "Get in touch with Abu Sara Jewelry. Visit our Amman boutique, call us, or send a message for custom jewelry designs and inquiries.",
-    "keywords": ["contact Abu Sara Jewelry", "Amman jewelry store", "custom jewelry contact", "jewelry boutique Amman", "Abu Sara phone address"]
+    "title": "Contact Rovana Jewelry | Visit Our Damascus Boutique",
+    "description": "Get in touch with Rovana Jewelry. Visit our Damascus boutique, call us, or send a message for custom jewelry designs and inquiries.",
+    "keywords": ["contact Rovana Jewelry", "Damascus jewelry store", "custom jewelry contact", "jewelry boutique Damascus", "Rovana phone address"]
   },
   "eyebrow": "Get in Touch",
   "title1": "Get in",
@@ -40,6 +40,7 @@
     "success": "Thank you! Your message has been sent successfully. We'll contact you soon.",
     "error": "Something went wrong. Please try again.",
     "networkError": "Network error. Please check your connection and try again.",
+    "requiredFieldsNote": "Required fields",
     "validation": {
       "nameRequired": "Full name is required",
       "phoneRequired": "Phone number is required",

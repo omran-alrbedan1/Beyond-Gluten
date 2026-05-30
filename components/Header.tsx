@@ -73,7 +73,7 @@ export default function Header() {
                 <div className="w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
                   <img 
                     src={BRAND_IMAGES.logo} 
-                    alt="Abu Sara Logo" 
+                    alt="Rovana" 
                     className="w-full h-full object-cover object-center"
                   />
                 </div>
@@ -84,13 +84,7 @@ export default function Header() {
                     className="text-base md:text-[22px] font-light tracking-[0.25em] md:tracking-[0.35em] text-gray-900 uppercase group-hover:text-primary transition-colors duration-300 whitespace-nowrap"
                     style={{ fontFamily: "'Cormorant Garamond', 'Garamond', 'Georgia', serif" }}
                   >
-                    ABU SARA
-                  </span>
-                  <span
-                    className="text-[8px] md:text-[12px] font-light tracking-[0.15em] md:tracking-[0.2em] text-gray-600 uppercase group-hover:text-primary transition-colors duration-300 whitespace-nowrap"
-                    style={{ fontFamily: "'Cormorant Garamond', 'Garamond', 'Georgia', serif" }}
-                  >
-                    FINE SINCE 1921
+                    Rovana
                   </span>
                 </div>
               </div>
@@ -124,7 +118,7 @@ export default function Header() {
                 
                 {/* Active indicator - always visible for active link */}
                 {isActive && (
-                  <span className="absolute -bottom-3 left-0 w-full h-0.5 bg-[#c9a98a]"></span>
+                  <span className="absolute -bottom-3 left-0 w-full h-0.5 bg-[#E6C687]"></span>
                 )}
                 
                 {/* Hover underline effect - only show when not active */}

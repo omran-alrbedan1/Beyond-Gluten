@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     });
 
     await transporter.sendMail({
-      from: `"Abu Sara Jewelry" <${process.env.EMAIL_USER}>`,
+      from: `"Rovana Jewelry" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO,
       subject: `New Inquiry from ${name}`,
       html: `
@@ -54,11 +54,11 @@ export async function POST(req: NextRequest) {
           <!-- Header -->
           <tr>
             <td style="background:#1a1a1a;padding:36px 28px;text-align:center;">
-              <div style="width:40px;height:2px;background:#c9a98a;margin:0 auto 16px;"></div>
+              <div style="width:40px;height:2px;background:#E6C687;margin:0 auto 16px;"></div>
               <div style="margin-bottom:16px;">
-                <img src="https://abusarajewelry.com/assets/logo-as-CZhQ19Bt.jpg" alt="Abu Sara Jewelry" style="width:60px;height:60px;border-radius:50%;border:2px solid #c9a98a;">
+                <img src="https://abusarajewelry.com/assets/logo-as-CZhQ19Bt.jpg" alt="Rovana Jewelry" style="width:60px;height:60px;border-radius:50%;border:2px solid #E6C687;">
               </div>
-              <p style="font-size:10px;color:#c9a98a;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 8px;font-family:Arial,sans-serif;">Abu Sara Jewelry</p>
+              <p style="font-size:10px;color:#E6C687;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 8px;font-family:Arial,sans-serif;">Rovana Jewelry</p>
               <p style="font-size:24px;color:#ffffff;margin:0;font-weight:300;font-family:Arial,sans-serif;">New Message Received</p>
               <p style="font-size:12px;color:#888888;margin:8px 0 0;font-family:Arial,sans-serif;">Customer contact form submission</p>
             </td>
@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
             <td style="padding:24px 28px 0;">
               <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #f0ede8;border-radius:8px;overflow:hidden;">
                 <tr>
-                  <td style="background:#f9f7f5;padding:8px 14px;font-size:10px;font-weight:bold;color:#c9a98a;text-transform:uppercase;letter-spacing:0.15em;font-family:Arial,sans-serif;">
+                  <td style="background:#f9f7f5;padding:8px 14px;font-size:10px;font-weight:bold;color:#E6C687;text-transform:uppercase;letter-spacing:0.15em;font-family:Arial,sans-serif;">
                     Name
                   </td>
                 </tr>
@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
             <td style="padding:12px 28px 0;">
               <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #f0ede8;border-radius:8px;overflow:hidden;">
                 <tr>
-                  <td style="background:#f9f7f5;padding:8px 14px;font-size:10px;font-weight:bold;color:#c9a98a;text-transform:uppercase;letter-spacing:0.15em;font-family:Arial,sans-serif;">
+                  <td style="background:#f9f7f5;padding:8px 14px;font-size:10px;font-weight:bold;color:#E6C687;text-transform:uppercase;letter-spacing:0.15em;font-family:Arial,sans-serif;">
                     Phone
                   </td>
                 </tr>
@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
             <td style="padding:12px 28px 0;">
               <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #f0ede8;border-radius:8px;overflow:hidden;">
                 <tr>
-                  <td style="background:#f9f7f5;padding:8px 14px;font-size:10px;font-weight:bold;color:#c9a98a;text-transform:uppercase;letter-spacing:0.15em;font-family:Arial,sans-serif;">
+                  <td style="background:#f9f7f5;padding:8px 14px;font-size:10px;font-weight:bold;color:#E6C687;text-transform:uppercase;letter-spacing:0.15em;font-family:Arial,sans-serif;">
                     Message
                   </td>
                 </tr>
@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
           <tr>
             <td style="background:#1a1a1a;padding:20px 28px;text-align:center;margin-top:24px;">
               <p style="font-size:11px;color:#555555;margin:0;font-family:Arial,sans-serif;">
-                Sent via <span style="color:#c9a98a;">abusara.com</span> &nbsp;·&nbsp; ${sentAt}
+                Sent via <span style="color:#E6C687;">rovanajewellery.com</span> &nbsp;·&nbsp; ${sentAt}
               </p>
             </td>
           </tr>

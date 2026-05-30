@@ -32,18 +32,18 @@ export default async function CustomDesignPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid gap-12 min-h-full grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
             <div>
-              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a98a] font-semibold">
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-[#E6C687] font-semibold">
                 {t("form.eyebrow")}
               </p>
               <h2 className="mb-6 text-4xl leading-tight text-gray-900 md:text-5xl font-serif font-light">
                 {t("form.title")}
               </h2>
-              <div className="w-24 h-px bg-[#c9a98a] mb-8" />
+              <div className="w-24 h-px bg-[#E6C687] mb-8" />
               <p className="leading-relaxed text-gray-600">
                 {t("subtitle")}
               </p>
-              <div className="mt-8 rounded-lg bg-[#c9a98a]/10 p-6">
-                <Sparkles className="mb-3 text-[#c9a98a] w-6 h-6" />
+              <div className="mt-8 rounded-lg bg-[#E6C687]/10 p-6">
+                <Sparkles className="mb-3 text-[#E6C687] w-6 h-6" />
                 <h3 className="mb-2 text-lg text-gray-900 font-serif font-light">{t("trust.title")}</h3>
                 <p className="text-sm text-gray-600">
                   {t("trust.eyebrow")}

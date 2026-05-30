@@ -9,7 +9,7 @@ const sectionVariants = cva(
         default: "bg-white",
         ivory: "bg-[#f9f7f5]",
         onyx: "bg-[#1a1a1a]",
-        gold: "bg-[#c9a98a]",
+        gold: "bg-[#E6C687]",
       },
       spacing: {
         sm: "py-8",

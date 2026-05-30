@@ -1,15 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { HERO_IMAGES } from '@/constants/images';
+import { ads } from '@/constants/images';
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-      HERO_IMAGES.abuSaraHero,
-      HERO_IMAGES.abuSaraHero2,
-      HERO_IMAGES.abuSaraHero3
+      ads.hero1,
+      ads.hero2,
+      ads.hero3,
   ];
 
   useEffect(() => {
@@ -23,15 +23,6 @@ export default function Hero() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-
-  const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
   return (
     <section className="relative w-full h-[60vh] min-h-100 max-h-150 overflow-hidden">
       {/* Carousel Slides */}

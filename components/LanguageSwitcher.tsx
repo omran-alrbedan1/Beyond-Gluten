@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={() => switchLocale(locale === 'en' ? 'ar' : 'en')}
-      className="text-xs font-medium tracking-wide uppercase text-gray-600 hover:text-[#c9a98a] transition-colors duration-200"
+      className="text-xs font-medium tracking-wide uppercase text-gray-600 hover:text-[#E6C687] transition-colors duration-200"
     >
       {locale === 'en' ? 'العربية' : 'English'}
     </button>

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const BASE_URL = "https://abusarajewelry.com";
 
 export const defaultMetadata = {
-  siteName: "Abu Sara Jewelry",
+  siteName: "Rovana Jewelry",
   baseUrl: BASE_URL,
   defaultLocale: "en",
 };
@@ -37,7 +37,7 @@ export function buildMetadata({
       canonical: url,
       languages: {
         "en-US": `${BASE_URL}/en${path}`,
-        "ar-JO": `${BASE_URL}/ar${path}`,
+        "ar-SY": `${BASE_URL}/ar${path}`,
       },
     },
     robots: noIndex
@@ -57,7 +57,7 @@ export function buildMetadata({
       description,
       url,
       siteName: defaultMetadata.siteName,
-      locale: locale === "ar" ? "ar_JO" : "en_US",
+      locale: locale === "ar" ? "ar_SY" : "en_US",
       type: "website",
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },

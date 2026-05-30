@@ -211,7 +211,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full xs:flex-1 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] py-3 sm:py-3.5 md:py-4 px-6 rounded-lg sm:rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-md active:scale-[0.98]"
+            className="w-full xs:flex-1 bg-[#E6C687] hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] py-3 sm:py-3.5 md:py-4 px-6 rounded-lg sm:rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-md active:scale-[0.98]"
             aria-busy={isSubmitting}
             aria-label={isSubmitting ? "Sending message" : "Send message"}
           >

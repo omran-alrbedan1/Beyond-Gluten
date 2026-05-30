@@ -12,13 +12,13 @@ export default function FaqSection() {
     <section className="py-20 px-4 bg-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a98a] font-semibold">
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-[#E6C687] font-semibold">
             {t("faq.eyebrow")}
           </p>
           <h2 className="text-4xl text-gray-900 md:text-5xl font-serif font-light">
             {t("faq.title")}
           </h2>
-          <div className="w-24 h-px bg-[#c9a98a] mx-auto mt-6" />
+          <div className="w-24 h-px bg-[#E6C687] mx-auto mt-6" />
         </div>
         <div className="space-y-4">
           {FAQS.map((faq, index) => (
@@ -34,7 +34,7 @@ export default function FaqSection() {
                 }
               }}
             >
-              <summary className="cursor-pointer text-xl text-gray-900 transition-colors hover:text-[#c9a98a] font-serif font-light">
+              <summary className="cursor-pointer text-xl text-gray-900 transition-colors hover:text-[#E6C687] font-serif font-light">
                 {t(`faq.${faq}.q`)}
               </summary>
               <p className="mt-4 leading-relaxed text-gray-600">{t(`faq.${faq}.a`)}</p>

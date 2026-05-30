@@ -12,7 +12,7 @@ export default function HeroSection() {
       {/* Background Image with Overlay */}
       <Image
         src={HERO_IMAGES.jewelry}
-        alt="Abu Sara Jewelry"
+        alt="Rovana Jewelry"
         fill
         className="object-cover"
         priority
@@ -24,9 +24,9 @@ export default function HeroSection() {
           {t("eyebrow")}
         </p>
         <h1 className="mb-4 text-4xl leading-tight text-white md:text-5xl font-serif font-light">
-          {t("title1")} <em className="text-[#c9a98a] font-normal">{t("title2")}</em>
+          {t("title1")} <em className="text-[#E6C687] font-normal">{t("title2")}</em>
         </h1>
-        <div className="w-16 h-px bg-[#c9a98a] mx-auto mb-4" />
+        <div className="w-16 h-px bg-[#E6C687] mx-auto mb-4" />
         <p className="leading-relaxed text-gray-200">{t("subtitle")}</p>
       </div>
     </section>

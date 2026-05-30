@@ -56,7 +56,7 @@ export default function ServicesSection() {
             >
               <div className="p-6">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="shrink-0 w-12 h-12 bg-[#c9a98a]/10 rounded-lg flex items-center justify-center group-hover:bg-[#c9a98a]/20 transition-colors duration-300">
+                  <div className="shrink-0 w-12 h-12 bg-[#E6C687]/10 rounded-lg flex items-center justify-center group-hover:bg-[#E6C687]/20 transition-colors duration-300">
                        <img
                   src={service.image}
                   alt={serviceTitle}

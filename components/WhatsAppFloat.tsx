@@ -1,16 +1,15 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { whatsappLink } from '@/constants/site';
 
 export default function WhatsAppFloat() {
   const t = useTranslations('common');
 
   return (
     <a
-      href={whatsappLink(t('whatsapp.message'))}
+      href="https://wa.me/963981117927?text=Hello Rovana Jewelry, I would like to book a custom design."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#c9a98a] hover:bg-amber-700 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-colors duration-200"
+      className="fixed bottom-6 right-6 z-50 bg-[#E6C687] text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-colors duration-200 hover:bg-[#d4b06a]"
       aria-label={t('whatsapp.text')}
     >
       <svg

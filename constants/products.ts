@@ -1,6 +1,6 @@
 import { IMAGES } from "./images";
 
-export type ProductCategory = "rings" | "necklaces" | "bracelets" | "pendants" | "earrings";
+export type ProductCategory = "rings" | "necklaces" | "bracelets";
 
 export interface Product {
   id: string;
@@ -164,37 +164,6 @@ export const PRODUCTS: Product[] = [
     category: "bracelets",
   },
 
-  // ---------- Earrings ----------
-  {
-    id: "e-101",
-    name: "Flame Pavé Earrings",
-    tagline: "Frame your beauty in light.",
-    image: IMAGES.earringsFlame,
-    category: "earrings",
-  },
-  {
-    id: "e-102",
-    name: "18K Chain Tassel Earrings",
-    tagline: "Movement and light in every strand.",
-    image: IMAGES.earringsChainTasselProduct,
-    category: "earrings",
-  },
-  {
-    id: "e-103",
-    name: "Golden Tassel Drop",
-    tagline: "A graceful drop with a luminous finish.",
-    image: IMAGES.earringsChainTasselWorn,
-    category: "earrings",
-  },
-
-  // ---------- Pendants ----------
-  {
-    id: "p-001",
-    name: "18K Gold Pendant",
-    tagline: "A timeless touch of sophistication.",
-    image: IMAGES.pendantGold,
-    category: "pendants",
-  },
 ];
 
 // Service functions
@@ -218,8 +187,8 @@ export async function getProductById(id: string): Promise<Product | null> {
 }
 
 export const SITE = {
-  name: "Abu Sara Jewelry",
-  shortName: "Abu Sara",
+  name: "Rovana Jewelry",
+  shortName: "Rovana",
   tagline: "Elegance in Every Detail",
   established: 1921,
   description:
@@ -227,20 +196,20 @@ export const SITE = {
 } as const;
 
 export const CONTACT = {
-  phoneDisplay: "0777616777",
-  phoneTel: "+962777616777",
-  whatsappNumber: "962777616777",
-  email: "info@abusarajewelry.com",
+  phoneDisplay: "0981 117 927",
+  phoneTel: "+963981117927",
+  whatsappNumber: "963981117927",
+  email: "rovanajewellery@gmail.com",
   address: {
-    line1: "Sweifieh",
-    line1Ar: "الصويفية",
-    line2: "Amman, Jordan",
-    line2Ar: "عمّان، الأردن",
-    full: "Salah Al-Shemat St. 7, Amman",
-    fullAr: "ش. صلاح الشمات 7، عمّان، الأردن",
+    line1: "Al-Salihiya, Next to Abou Abdo Juice",
+    line1Ar: "الصالحية، بجانب عصير أبو عبدو",
+    line2: "Damascus, Syria",
+    line2Ar: "دمشق، سوريا",
+    full: "Al-Salihiya, Next to Abou Abdo Juice, Damascus, Syria",
+    fullAr: "الصالحية، بجانب عصير أبو عبدو، دمشق، سوريا",
   },
-  mapsDirections: "https://www.google.com/maps/dir/?api=1&destination=Salah+Al-Shemat+St+7,+Amman",
-  mapsEmbed: "https://www.google.com/maps?q=Salah+Al-Shemat+St+7,+Amman&output=embed",
+  mapsDirections: "https://www.google.com/maps/search/?api=1&query=Al-Salihiya+Damascus+Syria",
+  mapsEmbed: "https://www.google.com/maps?q=Al-Salihiya+Damascus+Syria&output=embed",
   hours: [
     { day: "Saturday - Thursday", dayAr: "السبت - الخميس", time: "10:00 - 20:30" },
     { day: "Friday", dayAr: "الجمعة", time: "Closed" },

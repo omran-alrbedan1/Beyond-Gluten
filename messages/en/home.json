@@ -1,25 +1,24 @@
 {
   "metadata": {
-    "title": "Abu Sara Jewelry — Gold & Diamonds Since 1921 | Amman",
-    "description": "Discover Abu Sara Jewelry in Amman: gold, diamonds, custom designs since 1921. Browse our collections or contact us for bespoke jewelry.",
-    "keywords": ["gold jewelry Amman", "custom jewelry Jordan", "diamond rings Amman", "luxury jewelry Amman", "bespoke jewelry Jordan", "Abu Sara Jewelry", "jewelry since 1921"]
+    "title": "Rovana Jewelry — Gold & Diamonds",
+    "description": "Discover Rovana Jewelry in Damascus: gold, diamonds, and custom designs. Browse our collections or contact us for bespoke jewelry.",
+    "keywords": ["gold jewelry Damascus", "custom jewelry Syria", "diamond rings Damascus", "luxury jewelry Damascus", "bespoke jewelry Syria", "Rovana Jewelry"]
   },
   "hero": {
-    "eyebrow": "Abu Sara Jewelry",
-    "title": "Timeless Elegance Since 1921",
+    "eyebrow": "Rovana Jewelry",
+    "title": "Timeless Elegance",
     "title1": "Timeless Elegance",
-    "title2": "Since 1921",
-    "subtitle": "Jordan's trusted family-owned jeweler crafting heirloom pieces in the heart of Amman since 1921.",
+    "subtitle": "Syria's trusted jewelry destination crafting heirloom pieces in the heart of Damascus.",
     "subtitle1": "Exquisite designs and custom jewelry with generational expertise.",
-    "subtitle2": "Family heritage in fine jewelry craftsmanship since 1921.",
+    "subtitle2": "Family heritage in fine jewelry craftsmanship",
     "cta": "Explore Collection",
     "explore": "Explore Collection",
     "contact": "Contact Us"
   },
   "welcome": {
-    "title": "Abu Sara Jewelry",
-    "description": "Abu Sara Jewelry is a heritage jewelry store in Amman, offering exclusive designs of gold, diamonds, rings, pendants and bracelets, with custom jewelry design service and family expertise since 1921.",
-    "subtitle": "Abu Sara Jewelry in Amman: gold, diamonds, rings, pendants, bracelets and custom jewelry design with family expertise since 1921."
+    "title": "Rovana Jewelry",
+    "description": "Rovana Jewelry offers exclusive designs of gold, diamonds, rings, pendants and bracelets, with custom jewelry design service based in Damascus, Syria.",
+    "subtitle": "Rovana Jewelry: gold, diamonds, rings, pendants, bracelets and custom jewelry design in Damascus."
   },
   "specialOffers": {
     "tag": "Special Offer",
@@ -62,7 +61,7 @@
     "description": "We take pride in creating exceptional jewelry that brings joy to our customers. Here's what some of our satisfied clients have to say about their experience with our collections and craftsmanship.",
     "saif": {
       "name": "Saif Kilani",
-      "text": "Praise be to God for the service, honesty, and truth in dealing. I have been dealing with them for over 23 years. May God bless them in their business."
+      "text": "Praise be to God for the service, honesty, and truth in dealing. I have been dealing with them for over 4 years. May God bless them in their business."
     },
     "tala": {
       "name": "Tala Adas",
@@ -70,7 +69,7 @@
     },
     "anas": {
       "name": "Anas Yacoub",
-      "text": "One of the best jewelry galleries in Amman, dignified and kind dealing, with a distinguished collection of gold and jewelry. I recommend everyone to try them."
+      "text": "One of the best jewelry galleries in Damascus, dignified and kind dealing, with a distinguished collection of gold and jewelry. I recommend everyone to try them."
     }
   },
   "blog": {
@@ -138,21 +137,21 @@
     "eyebrow": "Our Heritage",
     "title1": "Three Generations",
     "title2": "of Excellence",
-    "subtitle": "From Jaffa to Amman, our family's commitment to craftsmanship and trust has remained unwavering since 1921.",
+    "subtitle": "Our commitment to craftsmanship and trust has remained unwavering through the years.",
     "since": "Since",
-    "founderCaption": "Yousef Hasan Abu Sara, founder, outside the original shop in Amman",
+    "founderCaption": "Our founder outside the original shop",
     "chapter1": "Chapter One",
     "chapter1Title1": "The Beginning",
     "chapter1Title2": "in Jaffa",
-    "chapter1Text1": "Our story begins in 1921 in Jaffa, where our founder established the first Abu Sara Jewelry workshop with a commitment to exceptional craftsmanship and honest business practices.",
+    "chapter1Text1": "Our story began with a commitment to exceptional craftsmanship and honest business practices.",
     "chapter1Text2": "The foundation was built on trust, quality, and a deep respect for the art of jewelry making - values that continue to guide us today.",
     "visitUs": "Visit Our Boutique",
     "chapter2": "Chapter Two",
     "chapter2Title1": "A New Era",
-    "chapter2Title2": "in Amman",
-    "chapter2Text": "In the 1970s, we expanded our operations to Amman, Jordan, bringing our expertise and reputation for quality to the growing capital city.",
+    "chapter2Title2": "in Damascus",
+    "chapter2Text": "In the 1970s, we expanded our operations to Damascus, Syria, bringing our expertise and reputation for quality to the growing capital city.",
     "marketLabel": "Goldsmith's Market",
-    "marketCaption": "The historic Goldsmith's Market in old Amman",
+    "marketCaption": "The historic Goldsmith's Market in old Damascus",
     "address": "Address",
     "phone": "Phone",
     "getDirections": "Get Directions",
@@ -163,7 +162,7 @@
       },
       "1970s": {
         "title": "New Era",
-        "text": "Expanded to Amman, bringing our expertise to Jordan's growing capital."
+        "text": "Expanded to Damascus, bringing our expertise to Syria's growing capital."
       },
       "2000s": {
         "title": "Modern Legacy",
@@ -179,7 +178,7 @@
     "eyebrow": "Why Choose Us",
     "title1": "Trust Woven",
     "title2": "Into Gold",
-    "subtitle": "Discover what makes Abu Sara Jewelry the preferred choice for discerning clients across Jordan.",
+    "subtitle": "Discover what makes Rovana Jewelry the preferred choice for discerning clients.",
     "reasons": {
       "heritage": {
         "title": "Century of Heritage",
@@ -202,7 +201,7 @@
   "cta": {
     "title1": "Ready to Find",
     "title2": "Your Perfect Piece?",
-    "body": "Visit our boutique in Sweifieh or contact us to begin your journey with Abu Sara Jewelry.",
+    "body": "Visit our boutique in Damascus or contact us to begin your journey with Rovana Jewelry.",
     "button": "Get in Touch"
   },
   "category": {
@@ -219,9 +218,9 @@
     "description": "Crafting exquisite custom jewelry since 1948. Your vision, our expertise.",
     "contact": {
       "title": "Contact Us",
-      "address": "Salah Al-Shemat St. 7, Amman",
-      "email": "info@abusarajewelry.com",
-      "phone": "0777616777"
+      "address": "Al-Salihiya, Next to Abou Abdo Juice, Damascus",
+      "email": "rovanajewellery@gmail.com",
+      "phone": "0981 117 927"
     },
     "navigation": {
       "title": "Quick Links",
@@ -248,6 +247,6 @@
     "app": {
       "title": "Our App"
     },
-    "copyright": "© 2024 Abu Sara Jewelry. All Rights Reserved."
+    "copyright": "© 2026 Rovana Jewelry. All Rights Reserved."
   }
 }

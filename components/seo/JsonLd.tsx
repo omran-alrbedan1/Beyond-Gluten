@@ -2,29 +2,23 @@ export function JewelryStoreSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "JewelryStore",
-    name: " ابو سارة للمجوهرات",
+    name: "مجوهرات روفانا",
     url: "https://abusarajewelry.com",
     logo: "https://abusarajewelry.com/assets/logo-as.jpg",
     image: "https://abusarajewelry.com/assets/logo-as.jpg",
-    description: "مجوهرات ذهبية فاخرة وخدمات تصميم مخصص في عمان، الأردن. تأسست عام 1921.",
-    foundingDate: "1921",
-    telephone: "+962777616777",
+    description: "متجرك المفضل لارقى مجوهرات الذهب والألماس 💫",
+    telephone: "+963981117927",
     address: {
       "@type": "PostalAddress",
-      addressCountry: "JO",
-      addressLocality: "عمان",
-      streetAddress: "شارع صلاح الشمات 7",
+      addressCountry: "SY",
+      addressLocality: "دمشق",
+      streetAddress: "الصالحية، بجانب عصير أبو عبدو",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 31.9539,
-      longitude: 35.9106,
-    },
-    openingHours: "Mo-Sa 10:00-20:30",
+    openingHours: "Mo-Th 10:00-20:30",
     priceRange: "$$$",
+    hasMap: "https://maps.app.goo.gl/2U98HSagq1mMx7L28",
     sameAs: [
-      "https://www.instagram.com/abusarajewelry",
-      "https://www.facebook.com/abusarajewelry",
+      "https://www.instagram.com/rovanajewellery",
     ],
   };
 
@@ -40,15 +34,21 @@ export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: " ابو سارة للمجوهرات",
+    name: "مجوهرات روفانا",
     url: "https://abusarajewelry.com",
     logo: "https://abusarajewelry.com/assets/logo-as.jpg",
-    foundingDate: "1921",
+    description: "متجرك المفضل لارقى مجوهرات الذهب والألماس",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+962777616777",
+      telephone: "+963981117927",
       contactType: "خدمة العملاء",
       availableLanguage: ["العربية", "الإنجليزية"],
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "SY",
+      addressLocality: "دمشق",
+      streetAddress: "الصالحية، بجانب عصير أبو عبدو",
     },
   };
 
@@ -70,11 +70,11 @@ export function CustomDesignServiceSchema() {
     url: "https://abusarajewelry.com/ar/custom-design",
     provider: {
       "@type": "JewelryStore",
-      name: " ابو سارة للمجوهرات",
+      name: "مجوهرات روفانا",
     },
     areaServed: {
       "@type": "Country",
-      name: "الأردن",
+      name: "سوريا",
     },
   };
 
