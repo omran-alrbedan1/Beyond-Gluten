@@ -114,7 +114,7 @@ export function HeritageSection() {
           <div className="lg:order-2 relative">
             <div className="relative overflow-hidden rounded-lg h-[400px]">
               <Image
-                src={about.secondShop}
+                src={about.ourStory}
                 alt="The historic Goldsmith's Market in old Damascus"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
