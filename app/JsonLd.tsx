@@ -3,7 +3,7 @@ const organization = {
   '@type': 'Organization',
   name: 'FutureX Digital Solutions',
   url: 'https://futxtech.com',
-  logo: 'https://futxtech.com/logo.png',
+  logo: 'https://futxtech.com/images/logo.svg',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+962780185759',
