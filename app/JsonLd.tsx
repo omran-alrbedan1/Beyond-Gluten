@@ -22,12 +22,12 @@ const website = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Beyond Gluten',
-  url: 'https://beyond-gluten.com',
+  url: 'https://beyond-gluten.vercel.app',
   description: 'أول منصة متكاملة لمنتجات وخدمات الخالي من الجلوتين في العالم العربي',
   inLanguage: 'ar',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://beyond-gluten.com/search?q={search_term_string}',
+    target: 'https://beyond-gluten.vercel.app/search?q={search_term_string}',
     'query-input': 'required name=search_term_string'
   }
 };

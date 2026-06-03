@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://beyond-gluten.com';
+const BASE_URL = 'https://beyond-gluten.vercel.app';
 
 export async function getRootLayoutMetadata({ locale }: { locale: string }): Promise<Metadata> {
     const t = await getTranslations({ locale, namespace: 'layout.metadata' });

@@ -1,7 +1,7 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://beyond-gluten.com";
+const BASE_URL = "https://beyond-gluten.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ["", "ar"];
@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const locale of locales) {
     for (const page of pages) {
-      // بناء الرابط
       let url = BASE_URL;
       
       if (locale === "ar") {
@@ -48,32 +47,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
   }
-  
-  // إضافة صفحات إضافية
-  const extraPages = [
-    { path: "/search", priority: 0.5, freq: "daily" as const },
-    { path: "/offers", priority: 0.7, freq: "weekly" as const },
-    { path: "/brands", priority: 0.6, freq: "monthly" as const },
-  ];
-  
-  for (const page of extraPages) {
-    for (const locale of locales) {
-      let url = BASE_URL;
-      
-      if (locale === "ar") {
-        url += `/${locale}`;
-      }
-      
-      url += page.path;
-      
-      routes.push({
-        url: url,
-        lastModified: new Date(),
-        changeFrequency: page.freq,
-        priority: page.priority,
-      });
-    }
-  }
-  
   return routes;
 }
