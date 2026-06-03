@@ -14,7 +14,7 @@ import {
   scrollIndicatorVariants,
   sushiVariants,
   waffleVariants,
-} from './variants';
+} from '@/constants/variants';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);

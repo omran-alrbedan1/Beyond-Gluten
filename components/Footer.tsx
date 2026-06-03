@@ -3,16 +3,16 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useInView, type Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { IMAGES } from "@/constants/images";
 import SocialSphere from '@/components/SocialSphere';
+import { footerContainerVariants, footerItemVariants, footerLinkVariants } from '@/constants/variants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const t = useTranslations('layout.footer');
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-50px' });
 
   const socialLinks = [
     {
@@ -60,41 +60,6 @@ export default function Footer() {
     { label: t('links.contact'), href: '#contact' },
   ];
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut' as const,
-      },
-    },
-  };
-
-  const linkVariants: Variants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.08,
-        duration: 0.4,
-      },
-    }),
-  };
-
   return (
     <footer
       ref={sectionRef}
@@ -102,14 +67,15 @@ export default function Footer() {
     >
       <motion.div
         className="max-w-7xl mx-auto"
-        variants={containerVariants}
+        variants={footerContainerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible"
+        viewport={{ once: false, margin: "-20%" }}
       >
         {/* Stack vertically on mobile, row on larger screens */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-6">
           {/* Logo */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={footerItemVariants}>
             <Link href="/" className="flex items-center gap-2 shrink-0">
               <Image
                 src={IMAGES.logo}
@@ -127,9 +93,10 @@ export default function Footer() {
               <motion.a
                 key={link.label}
                 custom={idx}
-                variants={linkVariants}
+                variants={footerLinkVariants}
                 initial="hidden"
-                animate="visible"
+                whileInView="visible"
+                viewport={{ once: false }}
                 href={link.href}
                 className="text-sm text-gray-500 hover:text-[#8C936E] transition-colors font-medium"
               >
@@ -155,7 +122,7 @@ export default function Footer() {
 
         {/* Bottom Bar - Stack on mobile, row on larger screens */}
         <motion.div
-          variants={itemVariants}
+          variants={footerItemVariants}
           className="mt-8 pt-6 border-t border-gray-200"
         >
           <div className="flex flex-col-reverse md:-my-12 sm:flex-row items-center justify-between gap-4">

@@ -1,6 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import {
+  socialSphereVariants,
+  socialSphereBounceVariants,
+  socialSphereIconVariants,
+  socialSphereGlowVariants,
+} from '@/constants/variants';
 
 interface SocialSphereProps {
   icon: React.ReactNode;
@@ -11,80 +17,17 @@ interface SocialSphereProps {
 }
 
 export default function SocialSphere({ icon, href, label, delay, index }: SocialSphereProps) {
-  const sphereVariants = {
-    hidden: { 
-      opacity: 0,
-      scale: 0,
-      y: 50
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        type: "spring" as const,
-        stiffness: 200,
-        damping: 15,
-        delay: delay + (index * 0.1),
-        duration: 0.6
-      }
-    }
-  };
-
-  const bounceVariants = {
-    hidden: { y: 0 },
-    visible: {
-      y: [0, -12, 0],
-      transition: {
-        duration: 0.5,
-        delay: delay + (index * 0.15) + 0.5,
-        times: [0, 0.5, 1],
-        repeat: Infinity,
-        repeatDelay: 1.5,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
-  const iconVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: {
-        delay: delay + (index * 0.1) + 0.2,
-        duration: 0.3,
-        type: "spring" as const,
-        stiffness: 200
-      }
-    }
-  };
-
-  const glowVariants = {
-    hidden: { opacity: 0, scale: 0.5 },
-    visible: {
-      opacity: [0, 0.5, 0],
-      scale: [0.8, 1.2, 0.8],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        delay: delay + (index * 0.1),
-        ease: "easeInOut" as const
-      }
-    },
-    hover: {
-      opacity: 0.8,
-      scale: 1.3,
-      transition: { duration: 0.3 }
-    }
-  };
+  const sphereDelay = delay + (index * 0.1);
+  const bounceDelay = delay + (index * 0.15) + 0.5;
+  const iconDelay = delay + (index * 0.1) + 0.2;
+  const glowDelay = delay + (index * 0.1);
 
   return (
     <motion.a
       href={href}
       className="relative flex items-center justify-center cursor-pointer"
       aria-label={label}
-      variants={sphereVariants}
+      variants={socialSphereVariants(sphereDelay)}
       initial="hidden"
       animate="visible"
       whileHover={{
@@ -101,13 +44,13 @@ export default function SocialSphere({ icon, href, label, delay, index }: Social
     >
       {/* Bounce animation wrapper */}
       <motion.div
-        variants={bounceVariants}
+        variants={socialSphereBounceVariants(bounceDelay)}
         initial="hidden"
         animate="visible"
       >
         {/* Glow effect */}
         <motion.div
-          variants={glowVariants}
+          variants={socialSphereGlowVariants(glowDelay)}
           initial="hidden"
           animate="visible"
           className="absolute inset-0 rounded-full"
@@ -136,7 +79,7 @@ export default function SocialSphere({ icon, href, label, delay, index }: Social
           
           {/* Icon */}
           <motion.div
-            variants={iconVariants}
+            variants={socialSphereIconVariants(iconDelay)}
             initial="hidden"
             animate="visible"
             className="relative z-10 text-white"

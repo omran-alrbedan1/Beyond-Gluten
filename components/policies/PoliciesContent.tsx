@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { sectionVariants } from '@/constants/variants';
+import { sectionVariants, policiesContentSectionVariants, policiesContentIconVariants, policiesContentChevronVariants, policiesContentPanelVariants } from '@/constants/variants';
 
 const SECTION_ICONS = [
   'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
@@ -40,10 +40,10 @@ export default function PoliciesContent() {
             <motion.div
               key={index}
               className="bg-white rounded-2xl shadow-sm overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * index, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-              whileHover={{ y: -2 }}
+              variants={policiesContentSectionVariants(index)}
+              initial="hidden"
+              animate={isInView ? 'visible' : 'hidden'}
+              whileHover="hover"
             >
               <button
                 onClick={() => toggleSection(index)}
@@ -51,9 +51,9 @@ export default function PoliciesContent() {
               >
                 <motion.div
                   className="w-12 h-12 rounded-xl bg-theme-blob-3 flex items-center justify-center text-theme-brand shrink-0"
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={isInView ? { scale: 1, rotate: 0 } : {}}
-                  transition={{ type: 'spring' as const, stiffness: 260, damping: 20, delay: 0.2 + 0.1 * index }}
+                  variants={policiesContentIconVariants(index)}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
                 >
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d={SECTION_ICONS[index]} />
@@ -74,20 +74,18 @@ export default function PoliciesContent() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' as const }}
+                  variants={policiesContentChevronVariants}
+                  initial="closed"
+                  animate={openIndex === index ? 'open' : 'closed'}
                 >
                   <polyline points="6 9 12 15 18 9" />
                 </motion.svg>
               </button>
 
               <motion.div
+                variants={policiesContentPanelVariants}
                 initial={false}
-                animate={{
-                  height: openIndex === index ? 'auto' : 0,
-                  opacity: openIndex === index ? 1 : 0,
-                }}
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+                animate={openIndex === index ? 'open' : 'closed'}
                 className="overflow-hidden"
               >
                 <div className={`px-6 md:px-8 pb-6 md:pb-8 ${isRTL ? 'text-right' : 'text-left'}`}>

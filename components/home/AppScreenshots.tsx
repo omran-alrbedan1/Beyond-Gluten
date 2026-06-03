@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { HOME_IMAGES } from '@/constants/images';
 import {
   appScreenshotsContainerVariants,
@@ -11,6 +11,7 @@ import {
   appScreenshotsTitleVariants,
   appScreenshotsCarouselVariants,
   appScreenshotsDotsVariants,
+  appScreenshotsCardItemVariants,
 } from '@/constants/variants';
 
 const screenshots = [
@@ -25,7 +26,6 @@ export default function AppScreenshots() {
   const [activeScreen, setActiveScreen] = useState(2);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -92,7 +92,8 @@ export default function AppScreenshots() {
         <motion.div
           variants={appScreenshotsContainerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: false, margin: "-20%" }}
         >
           <motion.div 
             className="flex flex-col items-center gap-3 mb-3 pt-6"
@@ -140,18 +141,11 @@ export default function AppScreenshots() {
                     type="button"
                     key={idx}
                     onClick={() => setActiveScreen(idx)}
-                    initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{ 
-                      opacity: isCenter ? 1 : 0.6,
-                      scale: 1,
-                    }}
-                    transition={{ 
-                      duration: 0.6, 
-                      delay: idx * 0.1,
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 20,
-                    }}
+                    variants={appScreenshotsCardItemVariants}
+                    initial="hidden"
+                    whileInView={isCenter ? "center" : "flank"}
+                    viewport={{ once: false, margin: "-20%" }}
+                    custom={idx}
                     style={{
                       transform: `translateX(${offset * 12}px)`,
                     }}

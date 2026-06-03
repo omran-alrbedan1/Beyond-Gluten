@@ -12,6 +12,11 @@ import {
   contactUsHeaderVariants,
   contactUsFormVariants,
   contactUsInputVariants,
+  contactUsCircleTopVariants,
+  contactUsCircleBottomVariants,
+  contactUsImageHoverVariants,
+  contactUsSubmitMessageVariants,
+  contactUsSubmitButtonVariants,
 } from '@/constants/variants';
 
 export default function ContactUs() {
@@ -73,8 +78,8 @@ export default function ContactUs() {
             className="lg:col-span-5 -ml-[4rem] md:-ml-[12rem]  -mt-12 relative w-full flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[550px]"
           >
             <motion.div
-              whileHover={{ scale: 1.02, rotate: 2 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              variants={contactUsImageHoverVariants}
+              whileHover="hover"
               className="w-4/5 h-4/5 mx-auto relative"
             >
               <Image
@@ -89,28 +94,15 @@ export default function ContactUs() {
               {/* Decorative floating circles */}
               <motion.div
                 className="absolute -top-10 -right-10 w-20 h-20 rounded-full bg-[#8C936E]/10"
-                animate={{
-                  y: [0, -15, 0],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                variants={contactUsCircleTopVariants}
+                initial="initial"
+                animate="animate"
               />
               <motion.div
                 className="absolute -bottom-8 -left-8 w-16 h-16 rounded-full bg-[#8C936E]/5"
-                animate={{
-                  y: [0, 10, 0],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
+                variants={contactUsCircleBottomVariants}
+                initial="initial"
+                animate="animate"
               />
             </motion.div>
           </motion.div>
@@ -135,9 +127,10 @@ export default function ContactUs() {
 
             {submitted && (
               <motion.div
-                initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20 }}
+                variants={contactUsSubmitMessageVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
                 className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium"
               >
                 ✅ {t('successMessage')}
@@ -211,8 +204,9 @@ export default function ContactUs() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  variants={contactUsSubmitButtonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
                   className="bg-[#8C936E] text-white font-bold px-8 py-3.5 rounded-xl text-sm transition-all hover:bg-[#7A815E] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 group"
                 >
                   {isSubmitting ? (

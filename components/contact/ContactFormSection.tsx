@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { sectionVariants, itemVariants } from '@/constants/variants';
+import { sectionVariants, itemVariants, contactFormCardVariants, contactFormFieldVariants, contactFormMessageVariants, contactFormInfoColumnVariants, contactFormInfoItemVariants, contactFormSocialVariants } from '@/constants/variants';
 
 export default function ContactFormSection() {
   const locale = useLocale();
@@ -41,6 +41,8 @@ export default function ContactFormSection() {
     }
   }
 
+    const formCardVariants = contactFormCardVariants(isRTL);
+  const infoColumnVariants = contactFormInfoColumnVariants(isRTL);
   const infoItems = [
     {
       key: 'email',
@@ -112,9 +114,9 @@ export default function ContactFormSection() {
           {/* Form Column */}
           <motion.div
             className="bg-white rounded-2xl p-8 md:p-10 shadow-sm"
-            initial={{ opacity: 0, x: isRTL ? 40 : -40, y: 20 }}
-            animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+            variants={formCardVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -127,10 +129,10 @@ export default function ContactFormSection() {
                   required
                   className="block w-full rounded-xl border border-gray-200 px-4 py-3 text-sm shadow-sm focus:border-theme-brand focus:ring-2 focus:ring-theme-brand/20 focus:outline-none transition-all duration-300 bg-theme-blob-3/30 text-theme-strong placeholder:text-theme-muted-2"
                   placeholder={t('form.name')}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  whileFocus={{ scale: 1.01 }}
+                  variants={contactFormFieldVariants(0.2)}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
+                  whileFocus="focus"
                 />
               </div>
 
@@ -145,10 +147,10 @@ export default function ContactFormSection() {
                   required
                   className="block w-full rounded-xl border border-gray-200 px-4 py-3 text-sm shadow-sm focus:border-theme-brand focus:ring-2 focus:ring-theme-brand/20 focus:outline-none transition-all duration-300 bg-theme-blob-3/30 text-theme-strong placeholder:text-theme-muted-2"
                   placeholder={t('form.email')}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 }}
-                  whileFocus={{ scale: 1.01 }}
+                  variants={contactFormFieldVariants(0.3)}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
+                  whileFocus="focus"
                 />
               </div>
 
@@ -163,21 +165,21 @@ export default function ContactFormSection() {
                   required
                   className="block w-full rounded-xl border border-gray-200 px-4 py-3 text-sm shadow-sm focus:border-theme-brand focus:ring-2 focus:ring-theme-brand/20 focus:outline-none transition-all duration-300 bg-theme-blob-3/30 text-theme-strong placeholder:text-theme-muted-2 resize-none"
                   placeholder={t('form.message')}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 }}
-                  whileFocus={{ scale: 1.01 }}
+                  variants={contactFormFieldVariants(0.4)}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
+                  whileFocus="focus"
                 />
               </div>
 
               <motion.button
                 type="submit"
                 className="w-full rounded-xl bg-theme-brand px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-theme-brand-dark cursor-pointer"
-                initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                variants={contactFormFieldVariants(0.5)}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                whileHover="hover"
+                whileTap="tap"
               >
                 {t('form.submit')}
               </motion.button>
@@ -185,9 +187,9 @@ export default function ContactFormSection() {
               {status === 'success' && (
                 <motion.p
                   className="text-sm font-medium text-theme-brand bg-theme-brand/10 rounded-xl px-4 py-3"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  transition={{ duration: 0.3 }}
+                  variants={contactFormMessageVariants}
+                  initial="hidden"
+                  animate="visible"
                 >
                   {t('form.success')}
                 </motion.p>
@@ -195,9 +197,9 @@ export default function ContactFormSection() {
               {status === 'error' && (
                 <motion.p
                   className="text-sm font-medium text-red-500 bg-red-50 rounded-xl px-4 py-3"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  transition={{ duration: 0.3 }}
+                  variants={contactFormMessageVariants}
+                  initial="hidden"
+                  animate="visible"
                 >
                   {t('form.error')}
                 </motion.p>
@@ -208,9 +210,9 @@ export default function ContactFormSection() {
           {/* Info Column */}
           <motion.div
             className="flex flex-col justify-center space-y-8"
-            initial={{ opacity: 0, x: isRTL ? -40 : 40, y: 20 }}
-            animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+            variants={infoColumnVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
           >
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-theme-strong mb-6">
@@ -222,10 +224,10 @@ export default function ContactFormSection() {
                   <motion.div
                     key={item.key}
                     className="group flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300"
-                    initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.4 + 0.1 * index }}
-                    whileHover={{ x: isRTL ? -4 : 4, transition: { type: 'spring' as const, stiffness: 300 } }}
+                    variants={contactFormInfoItemVariants(index, isRTL)}
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
+                    whileHover="hover"
                   >
                     <div className="w-12 h-12 rounded-xl bg-theme-blob-3 flex items-center justify-center text-theme-brand shrink-0 group-hover:bg-theme-brand group-hover:text-white transition-colors duration-300">
                       {item.icon}
@@ -256,8 +258,9 @@ export default function ContactFormSection() {
                     href={social.href}
                     className="w-11 h-11 rounded-full bg-theme-brand flex items-center justify-center text-white transition-all duration-300 shadow-sm"
                     aria-label={social.label}
-                    whileHover={{ scale: 1.15, backgroundColor: '#767E56' }}
-                    whileTap={{ scale: 0.95 }}
+                    variants={contactFormSocialVariants}
+                    whileHover="hover"
+                    whileTap="tap"
                   >
                     {social.icon}
                   </motion.a>

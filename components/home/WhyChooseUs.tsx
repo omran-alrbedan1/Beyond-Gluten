@@ -9,6 +9,12 @@ import {
   whyChooseUsContainerVariants,
   whyChooseUsCardVariants,
   whyChooseUsIconVariants,
+  whyChooseUsHeaderContainerVariants,
+  whyChooseUsTagContainerVariants,
+  whyChooseUsTagLineVariants,
+  whyChooseUsFeatureTitleVariants,
+  whyChooseUsFeatureDescVariants,
+  whyChooseUsIconInnerVariants,
 } from '@/constants/variants';
 
 export default function WhyChooseUs() {
@@ -59,24 +65,24 @@ export default function WhyChooseUs() {
       >
         <motion.div
           className="flex flex-col items-center text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={whyChooseUsHeaderContainerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: false, margin: "-20%" }}
-          transition={{ duration: 0.6 }}
         >
           <motion.div 
             className="flex items-center gap-3 mb-2"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            variants={whyChooseUsTagContainerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: false, margin: "-20%" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <motion.div 
               className="w-8 h-[1px] bg-theme-brand/30"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
+              variants={whyChooseUsTagLineVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: false, margin: "-20%" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
               style={{ transformOrigin: isRTL ? 'left' : 'right' }}
             />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-theme-brand">
@@ -84,10 +90,10 @@ export default function WhyChooseUs() {
             </span>
             <motion.div 
               className="w-8 h-[1px] bg-theme-brand/40"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
+              variants={whyChooseUsTagLineVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: false, margin: "-20%" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
               style={{ transformOrigin: isRTL ? 'right' : 'left' }}
             />
           </motion.div>
@@ -109,21 +115,17 @@ export default function WhyChooseUs() {
               className="flex flex-col items-center text-center px-4"
               variants={cardVariants}
               custom={index}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              whileHover="hover"
             >
               <motion.div
                 className="w-24 h-24 rounded-full bg-theme-blob-2 shadow-inner flex items-center justify-center mb-6"
                 variants={whyChooseUsIconVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                }}
+                whileHover="hover"
               >
                 <motion.div
                   className="relative w-12 h-12"
-                  whileHover={{ scale: 1.15, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  variants={whyChooseUsIconInnerVariants}
+                  whileHover="hover"
                 >
                   <Image
                     src={feature.image}
@@ -136,20 +138,20 @@ export default function WhyChooseUs() {
               
               <motion.h3
                 className="text-lg font-bold leading-snug mb-4 max-w-[280px] text-theme-strong"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={whyChooseUsFeatureTitleVariants(index)}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: false, margin: "-20%" }}
-                transition={{ duration: 0.4, delay: 0.6 + (index * 0.2) }}
               >
                 {t(`${feature.translationKey}.title`)}
               </motion.h3>
               
               <motion.p
                 className="text-[13px] md:text-sm leading-relaxed max-w-[320px] text-theme-muted"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={whyChooseUsFeatureDescVariants(index)}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: false, margin: "-20%" }}
-                transition={{ duration: 0.4, delay: 0.8 + (index * 0.2) }}
               >
                 {t(`${feature.translationKey}.description`)}
               </motion.p>

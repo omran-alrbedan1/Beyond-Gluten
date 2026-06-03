@@ -13,6 +13,16 @@ import {
   clientReviewsAvatarVariants,
   clientReviewsDotsVariants,
   clientReviewsWheelRollingVariants,
+  clientReviewsTagVariants,
+  clientReviewsNameContainerVariants,
+  clientReviewsNameVariants,
+  clientReviewsDateVariants,
+  clientReviewsNavVariants,
+  clientReviewsTrailVariants,
+  clientReviewsSpeedLinesVariants,
+  clientReviewsDotsContainerVariants,
+  clientReviewsRingVariants,
+  clientReviewsWheelImageVariants,
 } from '@/constants/variants';
 
 export default function ClientReviews() {
@@ -87,9 +97,9 @@ export default function ClientReviews() {
             className="flex flex-col items-center mb-3 mt-8"
           >
             <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              variants={clientReviewsTagVariants}
+              initial="hidden"
+              animate="visible"
               className="text-xs tracking-[0.25em] font-bold text-[#8C936E] uppercase"
             >
               {t('tag')}
@@ -145,22 +155,22 @@ export default function ClientReviews() {
                 </motion.div>
                 <motion.div
                   key={`name-${activeReview}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
+                  variants={clientReviewsNameContainerVariants}
+                  initial="hidden"
+                  animate="visible"
                 >
                   <motion.h4
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.3 }}
+                    variants={clientReviewsNameVariants}
+                    initial="hidden"
+                    animate="visible"
                     className="font-bold text-gray-900 text-sm sm:text-base leading-tight"
                   >
                     {reviews[activeReview].name}
                   </motion.h4>
                   <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
+                    variants={clientReviewsDateVariants}
+                    initial="hidden"
+                    animate="visible"
                     className="text-[11px] sm:text-xs text-gray-400 font-semibold mt-0.5"
                   >
                     {reviews[activeReview].date}
@@ -169,9 +179,9 @@ export default function ClientReviews() {
               </div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                variants={clientReviewsNavVariants}
+                initial="hidden"
+                animate="visible"
                 className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}
               >
                 <motion.button
@@ -208,41 +218,31 @@ export default function ClientReviews() {
               className="lg:col-span-5 flex justify-center items-center h-70 sm:h-80 md:h-100 order-first lg:order-last mt-8 lg:mt-0"
             >
               <motion.div
-                whileHover={{ scale: 1.02, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                variants={clientReviewsWheelImageVariants}
+                whileHover="hover"
                 className="relative w-45 sm:w-55 md:w-72.5 aspect-square rounded-full shadow-2xl overflow-hidden cursor-pointer"
               >
                 {/* Trail effect - dust/wind trail behind the rolling image */}
                 <motion.div
                   className="absolute left-full top-1/2 -translate-y-1/2 w-20 h-1 bg-gradient-to-r from-[#8C936E]/0 via-[#8C936E]/30 to-[#8C936E]/0 rounded-full"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
+                  variants={clientReviewsTrailVariants}
+                  initial="hidden"
+                  animate="visible"
                 />
                 
                 {/* Rotation rings */}
                 <motion.div
                   className="absolute -inset-4 rounded-full border-2 border-dashed border-[#8C936E]/30 z-0"
-                  animate={{
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
+                  variants={clientReviewsRingVariants(1)}
+                  initial="initial"
+                  animate="animate"
                 />
                 
                 <motion.div
                   className="absolute -inset-8 rounded-full border border-[#8C936E]/15 z-0"
-                  animate={{
-                    rotate: -360,
-                  }}
-                  transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
+                  variants={clientReviewsRingVariants(-1)}
+                  initial="initial"
+                  animate="animate"
                 />
 
                 <Image
@@ -255,22 +255,18 @@ export default function ClientReviews() {
                 {/* Speed lines effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent z-20"
-                  initial={{ x: "-100%" }}
-                  animate={{ x: "100%" }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.3,
-                    ease: "easeOut",
-                  }}
+                  variants={clientReviewsSpeedLinesVariants}
+                  initial="hidden"
+                  animate="visible"
                 />
               </motion.div>
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            variants={clientReviewsDotsContainerVariants}
+            initial="hidden"
+            animate="visible"
             className="flex justify-center gap-2 mt-12"
           >
             {reviews.map((_, idx) => (

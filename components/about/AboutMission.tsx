@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { sectionVariants } from '@/constants/variants';
+import { sectionVariants, aboutMissionCardVariants, aboutMissionIconVariants, aboutMissionBarVariants } from '@/constants/variants';
 
 export default function AboutMission() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -54,16 +54,16 @@ export default function AboutMission() {
             <motion.div
               key={item.key}
               className="group relative bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-xl transition-all duration-500"
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 * index, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-              whileHover={{ y: -8, transition: { type: 'spring' as const, stiffness: 300 } }}
+              variants={aboutMissionCardVariants(index)}
+              initial="hidden"
+              animate={isInView ? 'visible' : 'hidden'}
+              whileHover="hover"
             >
               <motion.div
                 className="w-14 h-14 rounded-xl bg-theme-blob-3 flex items-center justify-center text-theme-brand mb-6 group-hover:bg-theme-brand group-hover:text-white transition-colors duration-500"
-                initial={{ scale: 0, rotate: -180 }}
-                animate={isInView ? { scale: 1, rotate: 0 } : {}}
-                transition={{ type: 'spring' as const, stiffness: 260, damping: 20, delay: 0.3 + 0.15 * index }}
+                variants={aboutMissionIconVariants(index)}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
               >
                 {item.icon}
               </motion.div>
@@ -78,9 +78,9 @@ export default function AboutMission() {
 
               <motion.div
                 className="absolute bottom-0 left-0 h-1 bg-theme-brand rounded-b-2xl"
-                initial={{ width: 0 }}
-                animate={isInView ? { width: '100%' } : {}}
-                transition={{ duration: 0.8, delay: 0.6 + 0.15 * index, ease: 'easeOut' as const }}
+                variants={aboutMissionBarVariants(index)}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
               />
             </motion.div>
           ))}

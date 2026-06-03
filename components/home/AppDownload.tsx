@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRef } from 'react';
 import {
@@ -27,7 +27,6 @@ export default function AppDownload() {
   const locale = useLocale();
   const isRTL = locale === 'ar';
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -45,8 +44,6 @@ export default function AppDownload() {
     label: string;
   }>;
 
-
-
   return (
     <section ref={sectionRef} className="w-full bg-theme-blob-3 text-[#111111] font-sans relative overflow-hidden">
       <motion.div 
@@ -55,14 +52,20 @@ export default function AppDownload() {
       >
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-20%" }}
           transition={{ duration: 0.6 }}
           className="text-[36px] font-bold text-center text-[#1A1E16] tracking-tight mb-24"
         >
           {t('title')}
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-20%" }}
+        >
           {stats.map((stat, idx) => {
             const Icon = iconMap[stat.label as keyof typeof iconMap] || Download;
             return (
@@ -71,19 +74,29 @@ export default function AppDownload() {
                 custom={idx}
                 //@ts-ignore
                 variants={AppDownloadcardVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 className="relative rounded-2xl bg-white p-7 pt-9 pb-9 shadow-[0_20px_50px_rgba(0,0,0,0.02)] text-left rtl:text-right"
               >
-                <div className={`absolute top-0 -translate-y-1/2 flex h-[54px] w-[54px] items-center justify-center rounded-full bg-[#919970] text-white border-[4px] border-white shadow-sm ${
-                  isRTL ? 'left-6' : 'right-6'
-                }`}>
+                <motion.div 
+                  className={`absolute top-0 -translate-y-1/2 flex h-[54px] w-[54px] items-center justify-center rounded-full bg-[#919970] text-white border-[4px] border-white shadow-sm ${
+                    isRTL ? 'left-6' : 'right-6'
+                  }`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
                   <Icon className="w-5 h-5" strokeWidth={1.5} />
-                </div>
+                </motion.div>
 
-                <span className="text-[32px] font-bold text-[#111111] block leading-none">
+                <motion.span 
+                  className="text-[32px] font-bold text-[#111111] block leading-none"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ delay: idx * 0.1 + 0.3, duration: 0.4, type: "spring", stiffness: 200 }}
+                >
                   {stat.value}
-                </span>
+                </motion.span>
                 
                 <p className="mt-2 text-[12px] font-medium text-[#666666]">
                   {stat.label}
@@ -91,7 +104,7 @@ export default function AppDownload() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

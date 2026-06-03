@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { whyChooseUsContainerVariants, whyChooseUsHeaderVariants } from '@/constants/variants';
+import { whyChooseUsContainerVariants, whyChooseUsHeaderVariants, aboutVisionCardVariants } from '@/constants/variants';
 
 const VALUE_ICONS = [
   {
@@ -31,16 +31,6 @@ export default function AboutVision() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
   const t = useTranslations('about');
   const values = t.raw('values.items') as Array<{ title: string; description: string }>;
-
-  const cardVariants = (i: number) => ({
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.6, delay: 0.2 * i, ease: [0.25, 0.46, 0.45, 0.94] as const },
-    },
-  });
 
   return (
     <section ref={sectionRef} className="w-full py-20 md:py-28 overflow-hidden bg-theme-blob-3">
@@ -85,7 +75,7 @@ export default function AboutVision() {
             <motion.div
               key={index}
               className="group relative bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-500"
-              variants={cardVariants(index)}
+              variants={aboutVisionCardVariants(index)}
               whileHover={{ y: -8, transition: { type: 'spring' as const, stiffness: 300 } }}
             >
               <motion.div
