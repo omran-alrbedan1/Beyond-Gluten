@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { HOME_IMAGES } from '@/constants/images';
 import { User, Mail, MessageSquare, Send } from 'lucide-react';
@@ -22,7 +22,6 @@ import {
 export default function ContactUs() {
   const t = useTranslations('home.contactUs');
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -70,12 +69,13 @@ export default function ContactUs() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
           variants={contactUsContainerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: false, margin: "-20%" }}
         >
           {/* Image Section with Animation */}
           <motion.div
             variants={contactUsImageVariants}
-            className="lg:col-span-5 -ml-[4rem] md:-ml-[12rem]  -mt-12 relative w-full flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[550px]"
+            className="lg:col-span-5 -ml-[4rem] md:-ml-[12rem] -mt-12 relative w-full flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[550px]"
           >
             <motion.div
               variants={contactUsImageHoverVariants}
