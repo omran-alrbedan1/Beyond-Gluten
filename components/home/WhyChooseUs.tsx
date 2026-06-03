@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import { HOME_IMAGES } from '@/constants/images';
-import { motion, useInView, AnimatePresence } from 'framer-motion'; 
-import { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'; 
+import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   whyChooseUsContainerVariants,
@@ -15,26 +15,17 @@ import {
 export default function WhyChooseUs() {
   const locale = useLocale();
   const isRTL = locale === 'ar';
-  const sectionRef = useRef<HTMLElement>(null);
-  const [showContent, setShowContent] = useState<boolean>(false);
-  
-  const isInView = useInView(sectionRef, { 
-    once: true,
-    margin: "0px", 
-    amount: 0.1,
-  });
-  
+  const [showContent, setShowContent] = useState(false);
   const t = useTranslations('home');
 
+  // نفس منطق AppDownload و Hero
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 800); 
+    }, 800);
     
     return () => clearTimeout(timer);
   }, []);
-
-  const shouldAnimate = isInView || showContent;
 
   const features = [
     {
@@ -57,13 +48,10 @@ export default function WhyChooseUs() {
   const cardVariants = whyChooseUsCardVariants(isRTL);
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="w-full py-16 md:py-24 overflow-hidden bg-theme-blob-3 relative"
-    >
+    <section className="w-full py-16 md:py-24 overflow-hidden bg-theme-blob-3 relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
         <AnimatePresence>
-          {shouldAnimate && (
+          {showContent && (
             <>
               <motion.div
                 className="flex flex-col items-center text-center mb-16"
