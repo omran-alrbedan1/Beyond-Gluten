@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import { HOME_IMAGES } from '@/constants/images';
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   whyChooseUsContainerVariants,
@@ -15,32 +15,15 @@ export default function WhyChooseUs() {
   const locale = useLocale();
   const isRTL = locale === 'ar';
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
   const t = useTranslations('home');
 
-  const [isMobile, setIsMobile] = useState(true);
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
   const { scrollYProgress } = useScroll({
-    target: isMobile ? undefined : sectionRef,
+    target: sectionRef,
     offset: ["start start", "end start"],
   });
 
-  const exitY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isMobile ? ["0%", "0%"] : ["0%", "-30%"]
-  );
-  const exitOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.75],
-    isMobile ? [1, 1] : [1, 0]
-  );
+  const exitY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const exitOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   const smoothExitY = useSpring(exitY, { stiffness: 100, damping: 30 });
   const smoothExitOpacity = useSpring(exitOpacity, { stiffness: 100, damping: 30 });
@@ -66,40 +49,44 @@ export default function WhyChooseUs() {
   const cardVariants = whyChooseUsCardVariants(isRTL);
 
   return (
-    <section
-      ref={sectionRef}
+    <section 
+      ref={sectionRef} 
       className="w-full py-16 md:py-24 overflow-hidden bg-theme-blob-3 relative"
     >
-      <motion.div
+      <motion.div 
         className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-10"
         style={{ y: smoothExitY, opacity: smoothExitOpacity }}
       >
         <motion.div
           className="flex flex-col items-center text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-20%" }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div
+          <motion.div 
             className="flex items-center gap-3 mb-2"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, margin: "-20%" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <motion.div
+            <motion.div 
               className="w-8 h-[1px] bg-theme-brand/30"
               initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: false, margin: "-20%" }}
               transition={{ duration: 0.6, delay: 0.4 }}
               style={{ transformOrigin: isRTL ? 'left' : 'right' }}
             />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-theme-brand">
               {t('hero.tag')}
             </span>
-            <motion.div
+            <motion.div 
               className="w-8 h-[1px] bg-theme-brand/40"
               initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: false, margin: "-20%" }}
               transition={{ duration: 0.6, delay: 0.4 }}
               style={{ transformOrigin: isRTL ? 'right' : 'left' }}
             />
@@ -113,7 +100,8 @@ export default function WhyChooseUs() {
           className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-6xl mx-auto"
           variants={whyChooseUsContainerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: false, margin: "-20%" }}
         >
           {features.map((feature, index) => (
             <motion.div
@@ -127,7 +115,7 @@ export default function WhyChooseUs() {
               <motion.div
                 className="w-24 h-24 rounded-full bg-theme-blob-2 shadow-inner flex items-center justify-center mb-6"
                 variants={whyChooseUsIconVariants}
-                whileHover={{
+                whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                 }}
@@ -145,20 +133,22 @@ export default function WhyChooseUs() {
                   />
                 </motion.div>
               </motion.div>
-
+              
               <motion.h3
                 className="text-lg font-bold leading-snug mb-4 max-w-[280px] text-theme-strong"
                 initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-20%" }}
                 transition={{ duration: 0.4, delay: 0.6 + (index * 0.2) }}
               >
                 {t(`${feature.translationKey}.title`)}
               </motion.h3>
-
+              
               <motion.p
                 className="text-[13px] md:text-sm leading-relaxed max-w-[320px] text-theme-muted"
                 initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-20%" }}
                 transition={{ duration: 0.4, delay: 0.8 + (index * 0.2) }}
               >
                 {t(`${feature.translationKey}.description`)}

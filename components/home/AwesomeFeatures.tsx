@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRef } from 'react';
@@ -19,7 +19,6 @@ export default function AwesomeFeatures() {
   const t = useTranslations('home.awesomeFeatures');
   const locale = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -44,7 +43,7 @@ export default function AwesomeFeatures() {
   const image = locale === 'ar' ? HOME_IMAGES.awesomeFeatures_arabic : HOME_IMAGES.awesomeFeatures_english;
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden p-20  lg:py-28 px-6 sm:px-8 lg:px-12 w-full bg-theme-brand text-white">
+    <section ref={sectionRef} className="relative overflow-hidden p-20 lg:py-28 px-6 sm:px-8 lg:px-12 w-full bg-theme-brand text-white">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-10 top-10 h-64 w-64 rounded-full bg-theme-blob-1/90 blur-3xl" />
         <div className="absolute right-0 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-theme-blob-3/90 blur-3xl" />
@@ -58,7 +57,8 @@ export default function AwesomeFeatures() {
           className="relative max-w-7xl mx-auto text-center z-10"
           variants={sectionVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          whileInView="visible"
+          viewport={{ once: false, margin: "-20%" }}
         >
           <motion.div className="flex flex-col items-center mb-4" variants={leftItemVariants}>
             <span className="text-xs tracking-[0.25em] font-bold text-white/70 uppercase">
@@ -79,7 +79,8 @@ export default function AwesomeFeatures() {
               className="lg:col-span-4 flex flex-col gap-12 lg:gap-16 lg:text-right text-center order-2 lg:order-1 relative py-4"
               variants={leftCardListVariants}
               initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
+              whileInView="visible"
+              viewport={{ once: false, margin: "-20%" }}
             >
               <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/5 via-white/40 to-white/5 rounded-full" />
 
@@ -111,7 +112,8 @@ export default function AwesomeFeatures() {
               className="lg:col-span-4 flex justify-center items-center h-[400px] sm:h-[500px] order-1 lg:order-2 z-10 relative" 
               variants={imageVariants}
               initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
+              whileInView="visible"
+              viewport={{ once: false, margin: "-20%" }}
             >
               <motion.div
                 variants={circleVariants}
@@ -129,7 +131,7 @@ export default function AwesomeFeatures() {
               </motion.div>
 
               <motion.div
-                className="relative w-[220px] sm:w-[250px] aspect-[9/18.5] rounded-[36px] overflow-hidden z-10 "
+                className="relative w-[220px] sm:w-[250px] aspect-[9/18.5] rounded-[36px] overflow-hidden z-10"
                 transition={{ type: 'spring' as const, stiffness: 300 }}
               >
                 <Image
@@ -147,7 +149,8 @@ export default function AwesomeFeatures() {
               className="lg:col-span-4 flex flex-col gap-12 lg:gap-16 text-center lg:text-left order-3 relative py-4"
               variants={rightCardListVariants}
               initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
+              whileInView="visible"
+              viewport={{ once: false, margin: "-20%" }}
             >
               <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-t from-white/5 via-white/40 to-white/5 rounded-full" />
 
