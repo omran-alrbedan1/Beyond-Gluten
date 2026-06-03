@@ -75,7 +75,7 @@ export default function ContactUs() {
           {/* Image Section with Animation */}
           <motion.div
             variants={contactUsImageVariants}
-            className="lg:col-span-5 -ml-[4rem] md:-ml-[12rem] -mt-12 relative w-full flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[550px]"
+            className="lg:col-span-5 -ml-[12rem] -mt-12 relative w-full flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[550px]"
           >
             <motion.div
               variants={contactUsImageHoverVariants}
