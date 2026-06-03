@@ -81,10 +81,10 @@ export default function ClientReviews() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-theme-blob-3 md:pb-24 md:pt-36 md:px-6  lg:px-12 w-full text-center overflow-hidden"
+      className="relative bg-theme-blob-3 py-16 md:py-24 px-6 sm:px-8 lg:px-12 w-full text-center overflow-hidden"
     >
       <motion.div
-        className="relative z-10"
+        className="relative z-10 max-w-7xl mx-auto w-full"
         style={{ y: smoothExitY, opacity: smoothExitOpacity }}
       >
         <motion.div
@@ -113,114 +113,20 @@ export default function ClientReviews() {
             {t('title')}
           </motion.h2>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className={`lg:col-span-7 flex flex-col justify-center max-w-xl lg:max-w-none mx-auto lg:mx-0 z-10 ${isRTL ? 'text-right' : 'text-left'} ${isRTL ? 'lg:pr-12' : 'lg:pl-12'}`}>
-              <div className="relative min-h-30 sm:min-h-35 mb-6 sm:mb-8">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.p
-                    key={activeReview}
-                    custom={direction}
-                    variants={textVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    className="text-xs sm:text-sm md:text-base text-gray-500 font-medium leading-relaxed absolute w-full"
-                  >
-                    &ldquo;{reviews[activeReview].text}&rdquo;
-                  </motion.p>
-                </AnimatePresence>
-              </div>
-
-              <div className={`flex items-center gap-3 mt-12 md:mt-0 sm:gap-4 mb-6 sm:mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <motion.div
-                  key={activeReview}
-                  variants={clientReviewsAvatarVariants}
-                  initial="initial"
-                  animate="animate"
-                  whileHover="whileHover"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shadow-md cursor-pointer"
-                >
-                  <img
-                    src={reviews[activeReview].avatar}
-                    alt={reviews[activeReview].name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
-                      if (target.parentElement) {
-                        target.parentElement.innerHTML = `<div class="w-full h-full bg-[#8C936E] flex items-center justify-center text-white font-bold text-lg">${reviews[activeReview].name.charAt(0)}</div>`;
-                      }
-                    }}
-                  />
-                </motion.div>
-                <motion.div
-                  key={`name-${activeReview}`}
-                  variants={clientReviewsNameContainerVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <motion.h4
-                    variants={clientReviewsNameVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="font-bold text-gray-900 text-sm sm:text-base leading-tight"
-                  >
-                    {reviews[activeReview].name}
-                  </motion.h4>
-                  <motion.p
-                    variants={clientReviewsDateVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="text-[11px] sm:text-xs text-gray-400 font-semibold mt-0.5"
-                  >
-                    {reviews[activeReview].date}
-                  </motion.p>
-                </motion.div>
-              </div>
-
-              <motion.div
-                variants={clientReviewsNavVariants}
-                initial="hidden"
-                animate="visible"
-                className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}
-              >
-                <motion.button
-                  onClick={handlePrev}
-                  variants={clientReviewsButtonVariants}
-                  initial="initial"
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-[#8C936E] border border-gray-200/60 shadow-sm flex items-center justify-center text-gray-600 hover:text-white font-bold text-sm transition-colors duration-200"
-                  aria-label={t('previous')}
-                >
-                  {isRTL ? '→' : '←'}
-                </motion.button>
-                <motion.button
-                  onClick={handleNext}
-                  variants={clientReviewsButtonVariants}
-                  initial="initial"
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-[#8C936E] border border-gray-200/60 shadow-sm flex items-center justify-center text-gray-600 hover:text-white font-bold text-sm transition-colors duration-200"
-                  aria-label={t('next')}
-                >
-                  {isRTL ? '←' : '→'}
-                </motion.button>
-              </motion.div>
-            </div>
-
-            {/* Professional Wheel Rolling Animation - Like a car wheel */}
+          {/* Mobile: Stack vertically, Desktop: Grid layout */}
+          <div className="max-w-6xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Wheel Image - Moves to top on mobile */}
             <motion.div
               variants={clientReviewsWheelRollingVariants}
               initial="initial"
               animate={isInView ? "animate" : "initial"}
               whileHover="hover"
-              className="lg:col-span-5 flex justify-center items-center h-70 sm:h-80 md:h-100 order-first lg:order-last mt-8 lg:mt-0"
+              className="lg:col-span-5 flex justify-center items-center order-first lg:order-last w-full mb-8 lg:mb-0"
             >
               <motion.div
                 variants={clientReviewsWheelImageVariants}
                 whileHover="hover"
-                className="relative w-45 sm:w-55 md:w-72.5 aspect-square rounded-full shadow-2xl overflow-hidden cursor-pointer"
+                className="relative w-45 sm:w-55 md:w-72.5 aspect-square rounded-full shadow-2xl overflow-hidden cursor-pointer mx-auto"
               >
                 {/* Trail effect - dust/wind trail behind the rolling image */}
                 <motion.div
@@ -261,6 +167,103 @@ export default function ClientReviews() {
                 />
               </motion.div>
             </motion.div>
+
+            {/* Review Content */}
+            <div className={`lg:col-span-7 flex flex-col justify-center w-full ${isRTL ? 'text-right' : 'text-left'}`}>
+              <div className="relative min-h-[180px] sm:min-h-[160px] md:min-h-[140px] mb-6 sm:mb-8">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.p
+                    key={activeReview}
+                    custom={direction}
+                    variants={textVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="text-sm sm:text-base md:text-lg text-gray-600 font-medium leading-relaxed absolute w-full px-4 sm:px-0"
+                  >
+                    &ldquo;{reviews[activeReview].text}&rdquo;
+                  </motion.p>
+                </AnimatePresence>
+              </div>
+
+              <div className={`flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 ${isRTL ? 'flex-row-reverse' : ''} justify-center lg:justify-start`}>
+                <motion.div
+                  key={activeReview}
+                  variants={clientReviewsAvatarVariants}
+                  initial="initial"
+                  animate="animate"
+                  whileHover="whileHover"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shadow-md cursor-pointer flex-shrink-0"
+                >
+                  <img
+                    src={reviews[activeReview].avatar}
+                    alt={reviews[activeReview].name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      if (target.parentElement) {
+                        target.parentElement.innerHTML = `<div class="w-full h-full bg-[#8C936E] flex items-center justify-center text-white font-bold text-lg">${reviews[activeReview].name.charAt(0)}</div>`;
+                      }
+                    }}
+                  />
+                </motion.div>
+                <motion.div
+                  key={`name-${activeReview}`}
+                  variants={clientReviewsNameContainerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="text-center lg:text-left"
+                >
+                  <motion.h4
+                    variants={clientReviewsNameVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="font-bold text-gray-900 text-sm sm:text-base leading-tight"
+                  >
+                    {reviews[activeReview].name}
+                  </motion.h4>
+                  <motion.p
+                    variants={clientReviewsDateVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="text-[11px] sm:text-xs text-gray-400 font-semibold mt-0.5"
+                  >
+                    {reviews[activeReview].date}
+                  </motion.p>
+                </motion.div>
+              </div>
+
+              <motion.div
+                variants={clientReviewsNavVariants}
+                initial="hidden"
+                animate="visible"
+                className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''} justify-center lg:justify-start`}
+              >
+                <motion.button
+                  onClick={handlePrev}
+                  variants={clientReviewsButtonVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-[#8C936E] border border-gray-200/60 shadow-sm flex items-center justify-center text-gray-600 hover:text-white font-bold text-sm transition-colors duration-200"
+                  aria-label={t('previous')}
+                >
+                  {isRTL ? '→' : '←'}
+                </motion.button>
+                <motion.button
+                  onClick={handleNext}
+                  variants={clientReviewsButtonVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-[#8C936E] border border-gray-200/60 shadow-sm flex items-center justify-center text-gray-600 hover:text-white font-bold text-sm transition-colors duration-200"
+                  aria-label={t('next')}
+                >
+                  {isRTL ? '←' : '→'}
+                </motion.button>
+              </motion.div>
+            </div>
           </div>
 
           <motion.div
