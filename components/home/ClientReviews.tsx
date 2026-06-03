@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
 import { HOME_IMAGES } from '@/constants/images';
 import { useTranslations, useLocale } from 'next-intl';
 import {
@@ -32,6 +32,7 @@ export default function ClientReviews() {
   const locale = useLocale();
   const isRTL = locale === 'ar';
   const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: false, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -80,7 +81,7 @@ export default function ClientReviews() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-theme-blob-3 md:pb-24 md:pt-36 md:px-6 lg:px-12 w-full text-center overflow-hidden"
+      className="relative bg-theme-blob-3 md:pb-24 md:pt-36 md:px-6  lg:px-12 w-full text-center overflow-hidden"
     >
       <motion.div
         className="relative z-10"
@@ -89,8 +90,7 @@ export default function ClientReviews() {
         <motion.div
           variants={clientReviewsContainerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, margin: "-20%" }}
+          animate={isInView ? "visible" : "hidden"}
         >
           <motion.div
             variants={clientReviewsItemVariants}
@@ -99,8 +99,7 @@ export default function ClientReviews() {
             <motion.span
               variants={clientReviewsTagVariants}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false }}
+              animate="visible"
               className="text-xs tracking-[0.25em] font-bold text-[#8C936E] uppercase"
             >
               {t('tag')}
@@ -158,14 +157,12 @@ export default function ClientReviews() {
                   key={`name-${activeReview}`}
                   variants={clientReviewsNameContainerVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false }}
+                  animate="visible"
                 >
                   <motion.h4
                     variants={clientReviewsNameVariants}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false }}
+                    animate="visible"
                     className="font-bold text-gray-900 text-sm sm:text-base leading-tight"
                   >
                     {reviews[activeReview].name}
@@ -173,8 +170,7 @@ export default function ClientReviews() {
                   <motion.p
                     variants={clientReviewsDateVariants}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false }}
+                    animate="visible"
                     className="text-[11px] sm:text-xs text-gray-400 font-semibold mt-0.5"
                   >
                     {reviews[activeReview].date}
@@ -185,8 +181,7 @@ export default function ClientReviews() {
               <motion.div
                 variants={clientReviewsNavVariants}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false }}
+                animate="visible"
                 className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}
               >
                 <motion.button
@@ -214,11 +209,11 @@ export default function ClientReviews() {
               </motion.div>
             </div>
 
+            {/* Professional Wheel Rolling Animation - Like a car wheel */}
             <motion.div
               variants={clientReviewsWheelRollingVariants}
               initial="initial"
-              whileInView="animate"
-              viewport={{ once: false, margin: "-20%" }}
+              animate={isInView ? "animate" : "initial"}
               whileHover="hover"
               className="lg:col-span-5 flex justify-center items-center h-70 sm:h-80 md:h-100 order-first lg:order-last mt-8 lg:mt-0"
             >
@@ -227,14 +222,15 @@ export default function ClientReviews() {
                 whileHover="hover"
                 className="relative w-45 sm:w-55 md:w-72.5 aspect-square rounded-full shadow-2xl overflow-hidden cursor-pointer"
               >
+                {/* Trail effect - dust/wind trail behind the rolling image */}
                 <motion.div
                   className="absolute left-full top-1/2 -translate-y-1/2 w-20 h-1 bg-gradient-to-r from-[#8C936E]/0 via-[#8C936E]/30 to-[#8C936E]/0 rounded-full"
                   variants={clientReviewsTrailVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false }}
+                  animate="visible"
                 />
                 
+                {/* Rotation rings */}
                 <motion.div
                   className="absolute -inset-4 rounded-full border-2 border-dashed border-[#8C936E]/30 z-0"
                   variants={clientReviewsRingVariants(1)}
@@ -256,12 +252,12 @@ export default function ClientReviews() {
                   className="object-cover relative z-10"
                 />
                 
+                {/* Speed lines effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent z-20"
                   variants={clientReviewsSpeedLinesVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false }}
+                  animate="visible"
                 />
               </motion.div>
             </motion.div>
@@ -270,8 +266,7 @@ export default function ClientReviews() {
           <motion.div
             variants={clientReviewsDotsContainerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
+            animate="visible"
             className="flex justify-center gap-2 mt-12"
           >
             {reviews.map((_, idx) => (
@@ -280,8 +275,7 @@ export default function ClientReviews() {
                 custom={idx}
                 variants={clientReviewsDotsVariants(idx)}
                 initial="initial"
-                whileInView="animate"
-                viewport={{ once: false }}
+                animate="animate"
                 whileHover="whileHover"
                 onClick={() => {
                   setDirection(idx > activeReview ? 1 : -1);

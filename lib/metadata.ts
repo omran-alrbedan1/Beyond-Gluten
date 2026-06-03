@@ -54,7 +54,6 @@ export async function getRootLayoutMetadata({ locale }: { locale: string }): Pro
             images: [`${BASE_URL}/og-image.jpg`],
         },
         icons: { icon: '/favicon.ico', apple: '/images/logo.png' },
-        manifest: '/manifest',
         verification: { google: 'google-site-verification-code' }
     };
 }
