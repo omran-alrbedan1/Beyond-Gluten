@@ -3,10 +3,11 @@ import { getPoliciesPageMetadata } from '@/lib/metadata';
 import { PoliciesHero, PoliciesContent } from '@/components/policies';
 
 export async function generateMetadata({
-  params: { locale }
+  params
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   return getPoliciesPageMetadata({ locale });
 }
 

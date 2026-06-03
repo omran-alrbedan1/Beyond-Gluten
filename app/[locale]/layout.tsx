@@ -19,20 +19,22 @@ const geistMono = Geist_Mono({
 });
 
 export async function generateMetadata({
-  params: { locale }
+  params
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   return getRootLayoutMetadata({ locale });
 }
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const messages = await getMessages();
   const direction = locale === 'ar' ? 'rtl' : 'ltr';
 

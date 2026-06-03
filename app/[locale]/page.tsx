@@ -3,10 +3,11 @@ import { AppDownload, AppScreenshots, AwesomeFeatures, ClientReviews, ContactUs,
 import { getHomePageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
-  params: { locale }
+  params
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   return getHomePageMetadata({ locale });
 }
 
