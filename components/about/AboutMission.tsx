@@ -2,144 +2,134 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useRef } from 'react';
 import { ABOUT_IMAGES } from '@/constants/images';
+import {
+  aboutMissionContainerVariants,
+  aboutMissionItemVariants,
+  aboutMissionImageVariants,
+  aboutMissionTextVariants,
+  aboutMissionLineVariants,
+  aboutMissionIconVariants,
+} from '@/constants/variants';
 
 export default function AboutMission() {
   const t = useTranslations('about');
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.1,
-      },
-    },
-  };
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
-    },
-  };
+  const exitY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const exitOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 },
-    },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, delay: 0.3 },
-    },
-  };
-
-  const textRightVariants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, delay: 0.3 },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { width: 0 },
-    visible: {
-      width: 64,
-      transition: { duration: 0.6, delay: 0.4 },
-    },
-  };
+  const smoothExitY = useSpring(exitY, { stiffness: 100, damping: 30 });
+  const smoothExitOpacity = useSpring(exitOpacity, { stiffness: 100, damping: 30 });
 
   return (
     <motion.section
-      className="py-20 px-4 "
-      variants={containerVariants}
+      ref={sectionRef}
+      className="py-20 px-4 overflow-hidden relative"
+      variants={aboutMissionContainerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      <div className="max-w-6xl mx-auto space-y-20 md:space-y-28">
+      <div 
+        className="max-w-6xl mx-auto space-y-20 md:space-y-28"
+        style={{ y: smoothExitY, opacity: smoothExitOpacity }}
+      >
         {/* Mission Section - Image Left, Text Right */}
         <motion.div
           className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16"
-          variants={itemVariants}
+          variants={aboutMissionItemVariants}
         >
           {/* Image - Left Side */}
           <motion.div
-            className="relative h-[420px] "
-            variants={imageVariants}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
+            className="relative h-[420px]"
+            variants={aboutMissionImageVariants}
           >
+            {/* Decorative circle behind image */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-theme-brand/10 to-transparent rounded-full blur-3xl"
+              variants={aboutMissionIconVariants}
+            />
             <Image
               src={ABOUT_IMAGES.mission}
               alt={t('mission.title')}
               fill
-              className="object-contain"
+              className="object-contain relative z-10"
               priority
             />
           </motion.div>
 
           {/* Text - Right Side */}
-          <motion.div variants={textVariants}>
-            <h3 className="mb-4 text-3xl md:text-4xl font-bold text-theme-strong">
+          <motion.div variants={aboutMissionTextVariants}>
+            <motion.h3 
+              className="mb-4 text-3xl md:text-4xl font-bold text-theme-strong"
+              variants={aboutMissionTextVariants}
+            >
               {t('mission.title')}
-            </h3>
+            </motion.h3>
             <motion.div
-              className="h-px bg-theme-brand mb-6 rounded-full"
-              variants={lineVariants}
+              className="h-px bg-theme-brand rounded-full"
+              variants={aboutMissionLineVariants}
             />
-            <p className="text-base md:text-lg leading-relaxed text-theme-muted">
+            <motion.p 
+              className="text-base md:text-lg leading-relaxed text-theme-muted mt-6"
+              variants={aboutMissionTextVariants}
+              transition={{ delay: 0.5 }}
+            >
               {t('mission.body')}
-            </p>
+            </motion.p>
           </motion.div>
         </motion.div>
 
         {/* Vision Section - Text Left, Image Right */}
         <motion.div
           className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16"
-          variants={itemVariants}
+          variants={aboutMissionItemVariants}
         >
           {/* Text - Left Side */}
-          <motion.div variants={textRightVariants}>
-            <h3 className="mb-4 text-3xl md:text-4xl font-bold text-theme-strong">
+          <motion.div variants={aboutMissionTextVariants}>
+            <motion.h3 
+              className="mb-4 text-3xl md:text-4xl font-bold text-theme-strong"
+              variants={aboutMissionTextVariants}
+            >
               {t('vision.title')}
-            </h3>
+            </motion.h3>
             <motion.div
-              className="h-px bg-theme-brand mb-6 rounded-full"
-              variants={lineVariants}
+              className="h-px bg-theme-brand rounded-full"
+              variants={aboutMissionLineVariants}
             />
-            <p className="text-base md:text-lg leading-relaxed text-theme-muted">
+            <motion.p 
+              className="text-base md:text-lg leading-relaxed text-theme-muted mt-6"
+              variants={aboutMissionTextVariants}
+              transition={{ delay: 0.5 }}
+            >
               {t('vision.body')}
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Image - Right Side */}
           <motion.div
             className="relative h-[380px]"
-            variants={imageVariants}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
+            variants={aboutMissionImageVariants}
           >
+            {/* Decorative circle behind image */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-tl from-theme-brand/10 to-transparent rounded-full blur-3xl"
+              variants={aboutMissionIconVariants}
+            />
             <Image
               src={ABOUT_IMAGES.vision}
               alt={t('vision.title')}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain"
+              className="object-contain relative z-10"
             />
           </motion.div>
         </motion.div>

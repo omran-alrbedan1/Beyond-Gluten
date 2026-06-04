@@ -904,6 +904,109 @@ export const aboutVisionCardVariants = (i: number): Variants => ({
     },
   },
 });
+// AboutMission section variants - Add these to your variants.ts file
+export const aboutMissionContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+export const aboutMissionItemVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 120,
+      damping: 20,
+      duration: 0.7,
+    },
+  },
+};
+
+export const aboutMissionImageVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.85,
+    rotate: -5,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 100,
+      damping: 18,
+      duration: 0.8,
+      delay: 0.2,
+    },
+  },
+  hover: {
+    scale: 1.02,
+    rotate: 2,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 200,
+      damping: 15,
+    },
+  },
+};
+
+export const aboutMissionTextVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: -30,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 150,
+      damping: 20,
+      delay: 0.3,
+    },
+  },
+};
+
+export const aboutMissionLineVariants: Variants = {
+  hidden: { width: 0, opacity: 0 },
+  visible: {
+    width: 64,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      delay: 0.4,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+};
+
+export const aboutMissionIconVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0,
+    rotate: -180,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 200,
+      damping: 20,
+      delay: 0.5,
+    },
+  },
+};
 
 // Home extra variants
 export const whyChooseUsLineVariants: Variants = {
@@ -962,20 +1065,6 @@ export const aboutMissionCardVariants = (custom: number): Variants => ({
   hover: {
     y: -8,
     transition: { type: 'spring' as const, stiffness: 300 },
-  },
-});
-
-export const aboutMissionIconVariants = (custom: number): Variants => ({
-  hidden: { scale: 0, rotate: -180 },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      type: 'spring' as const,
-      stiffness: 260,
-      damping: 20,
-      delay: 0.3 + 0.15 * custom,
-    },
   },
 });
 
