@@ -9,6 +9,9 @@ import {
   aboutVideoVariants,
   aboutBadgeVariants,
 } from './variants';
+import Image from 'next/image';
+import { Images } from 'lucide-react';
+import { IMAGES } from '@/constants/images';
 
 export default function AboutVideo() {
   const t = useTranslations('about');
@@ -16,7 +19,7 @@ export default function AboutVideo() {
 
   return (
     <motion.section
-      className="w-full py-20 md:py-28  overflow-hidden"
+      className="w-full pt-20 md:py-28  overflow-hidden"
       variants={aboutContainerVariants}
       initial="hidden"
       whileInView="visible"
@@ -74,6 +77,11 @@ export default function AboutVideo() {
             viewport={{ once: true, margin: "-50px" }}
             className="w-full lg:w-1/2"
           >
+            <Image
+              src={'/og-image.jpg'}
+              fill
+              alt={'logo'}
+            />
             <div className="relative overflow-hidden rounded-2xl shadow-lg" style={{ paddingTop: '56.25%' }}>
               <iframe
                 className="absolute inset-0 w-full h-full"
